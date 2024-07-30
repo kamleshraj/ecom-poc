@@ -23,7 +23,7 @@ const Cart = () => {
     // }
   }, []);
   return (
-    <section className="cart-items">
+    <section className="cart-items pt-3">
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>
