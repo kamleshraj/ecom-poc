@@ -1,0 +1,33 @@
+@import '../../styles/settings/colors';
+
+.homeBanner-wrapper{
+   background-color: $lightBG-color;
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   background-color: #000;
+   .slick-slider{
+    .slick-arrow{position: absolute;}
+   }
+    .homeBannerInner{
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 111;
+        .bannerInfo{
+            text-align: center;
+            padding: 15px;
+            flex: 3;
+            position: relative;
+        }
+        .banner-img{
+            flex: 2;
+            text-align: center;
+            img{
+                max-height: 350px;
+            }
+        }  
+    } 
+}
