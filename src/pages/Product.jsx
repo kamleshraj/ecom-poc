@@ -1,22 +1,13 @@
 import {useEffect, useState } from "react";
 import Banner from "../components/Banner/Banner";
-import { Container } from "react-bootstrap";
-import ShopList from "../components/ShopList";
 import { products } from "../utils/products";
 import { useParams } from "react-router-dom";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ProductReviews from "../components/ProductReviews/ProductReviews";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
-import styled from "styled-components";
 import Section from "../components/Section";
 
 
-const ProductWrapper=styled.div`
-  display: grid;
-    gap: 15px;
-    padding:15px 30px 45px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-`;
 
 const Product = () => {
   const { id } = useParams();

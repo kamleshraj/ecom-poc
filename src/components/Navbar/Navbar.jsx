@@ -10,7 +10,7 @@ const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-
+  console.log(expand);
   function scrollHandler() {
     if (window.scrollY >= 100) {
       setIsFixed(true);
@@ -78,16 +78,6 @@ const NavBar = () => {
         </div> */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-with-search d-flex justify-content-between align-items-center flex-grow-1">
-          {/* <InputGroup className="">
-            <Form.Control
-              placeholder="Search for products, brands and more..."
-              aria-label="Search for products, brands and more"
-              aria-describedby="basic-addon2"
-            />
-            <InputGroup.Text id="basic-addon2">
-            <SlMagnifier/>
-            </InputGroup.Text>
-          </InputGroup> */}
           <SearchBar/>
           <Nav className="justify-content-end flex-grow-1 pe-3">
             <Nav.Item>
