@@ -1,6 +1,6 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
-const CustomBreadcrumbs=()=>{
+const CustomBreadCrumbs =()=>{
   return (
     <Breadcrumb className='bg-dark p-1'>
       <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
@@ -12,4 +12,4 @@ const CustomBreadcrumbs=()=>{
   );
 }
 
-export default CustomBreadcrumbs;
+export default CustomBreadCrumbs;

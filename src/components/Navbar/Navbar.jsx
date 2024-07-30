@@ -9,7 +9,7 @@ const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  // fixed Header
+  console.log(expand);
   function scrollHandler() {
     if (window.scrollY >= 100) {
       setIsFixed(true);

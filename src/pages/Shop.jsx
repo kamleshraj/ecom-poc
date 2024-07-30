@@ -1,12 +1,10 @@
 import FilterSelect from "../components/FilterSelect";
-import SearchBar from "../components/SeachBar/SearchBar";
 import { useState } from "react";
 import { products } from "../utils/products";
 import ShopList from "../components/ShopList";
-import Banner from "../components/Banner/Banner";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import styled from "styled-components";
-import CustomBreadcrumbs from "../components/breadCum/breadCum";
+import CustomBreadcrumbs from "../components/CustomBreadCrumbs/CustomBreadCrumbs";
 
 const MainWrapper=styled.div`
 position: relative;
