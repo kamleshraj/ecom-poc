@@ -8,6 +8,7 @@ import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ProductReviews from "../components/ProductReviews/ProductReviews";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import styled from "styled-components";
+import Section from "../components/Section";
 
 
 const ProductWrapper=styled.div`
@@ -44,14 +45,11 @@ const Product = () => {
       <Banner title={selectedProduct?.productName} />
       <ProductDetails selectedProduct={selectedProduct} />
       <ProductReviews selectedProduct={selectedProduct} />
-      <section className="related-products">
-        <Container className="text-center">
-          <h3>Related Products</h3>
-        </Container>
-        <ProductWrapper>
-          <ShopList productItems={relatedProducts} />
-        </ProductWrapper>
-      </section>
+      <Section
+        title="Related Products"
+        bgColor="white"
+        productItems={relatedProducts}
+      />
     </>
   );
 };

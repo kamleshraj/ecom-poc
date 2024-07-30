@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { SlHandbag, SlUser, SlBasket, SlHeart } from "react-icons/sl";
 import SearchBar from "../SeachBar/SearchBar";
+
 const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  console.log(expand);
+
   function scrollHandler() {
     if (window.scrollY >= 100) {
       setIsFixed(true);
