@@ -20,9 +20,9 @@ const ProductDetails = ({ selectedProduct }) => {
   return (
     <section className="product-page">
       <Container>
-        <Row className="justify-content-center">
+        <Row className="align-items-center justify-content-center">
           <Col md={6}>
-            <img loading="lazy" src={selectedProduct?.imgUrl} alt="" />
+            <img loading="lazy" src={selectedProduct?.imgUrl} alt={selectedProduct.title} />
           </Col>
           <Col md={6}>
             <h2>{selectedProduct?.productName}</h2>
@@ -48,14 +48,16 @@ const ProductDetails = ({ selectedProduct }) => {
               value={quantity}
               onChange={handleQuantityChange}
             />
+            <div>
             <button
               aria-label="Add"
               type="submit"
-              className="add"
+              className="btn btn-warning"
               onClick={() => handelAdd(selectedProduct, quantity)}
             >
               Add To Cart
             </button>
+            </div>
           </Col>
         </Row>
       </Container>

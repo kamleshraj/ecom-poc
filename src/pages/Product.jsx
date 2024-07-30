@@ -38,7 +38,7 @@ const Product = () => {
       <ProductReviews selectedProduct={selectedProduct} />
       <Section
         title="Related Products"
-        bgColor="white"
+        bgColor="#f6f9fc"
         productItems={relatedProducts}
       />
     </>

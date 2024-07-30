@@ -10,7 +10,7 @@ const Footer = () => {
             <Col md={3} sm={5} className='box'>
               <div className="logo">
                   <ion-icon name="bag"></ion-icon>
-                  <h1>Multimart
+                  <h1>Multi Shop
                   <div className="logo-caption">Big Mega Store</div>
                   </h1>
               </div>
@@ -39,8 +39,8 @@ const Footer = () => {
             <Col md={3} sm={5} className='box'>
               <h2>Contact Us</h2>
               <ul>
-                <li>70 Washington Square South, New York, NY 10012, United States </li>
-                <li>Email: uilib.help@gmail.com</li>
+                <li>Symphony IT Park, Pune, Maharashtra 411024, IN</li>
+                <li>Email: multishopInfo@gmail.com</li>
                 <li>Phone: +1 1123 456 780</li>
               </ul>
             </Col>

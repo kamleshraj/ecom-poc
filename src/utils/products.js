@@ -858,11 +858,12 @@ export const products = [
     avgRating: 4.8,
   },
   {
-    id: "24",
+    id: "501",
     productName: "Stone and Beam Westview ",
     imgUrl: productImg01,
     category: "sofa",
     price: 193,
+    color: 'Red',
     prevPrice:200,
     discount:30,
     shortDesc:
@@ -878,11 +879,12 @@ export const products = [
     avgRating: 4.5,
   },
   {
-    id: "25",
+    id: "502",
     productName: "Stone and Beam Westview ",
     imgUrl: productImg01,
     category: "sofa",
     price: 193,
+    color: 'White',
     prevPrice:200,
     discount:30,
     shortDesc:
@@ -898,12 +900,13 @@ export const products = [
     avgRating: 4.5,
   },
   {
-    id: "26",
+    id: "503",
     productName: "Rivet Bigelow Modern ",
     imgUrl: productImg02,
     category: "sofa",
     price: 253,
     prevPrice:300,
+    color: 'Black',
     discount:20,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -922,11 +925,12 @@ export const products = [
     avgRating: 4.7,
   },
   {
-    id: "27",
+    id: "504",
     productName: "Baltsar Chair",
     imgUrl: productImg08,
     category: "chair",
     price: 89,
+    color: 'Yellow',
     prevPrice:100,
     discount:15,
     shortDesc:
@@ -946,11 +950,12 @@ export const products = [
     avgRating: 4.7,
   },
   {
-    id: "28",
+    id: "505",
     productName: "Helmar Chair",
     imgUrl: productImg09,
     category: "chair",
     price: 112,
+    color: 'Pink',
     prevPrice:200,
     discount:35,
     shortDesc:
@@ -970,11 +975,12 @@ export const products = [
     avgRating: 4.7,
   },
   {
-    id: "29",
+    id: "506",
     productName: "Realme 8",
     imgUrl: phone03,
     category: "mobile",
     price: 599,
+    color: 'Blue',
     prevPrice:700,
     discount:10,
     shortDesc:
@@ -994,10 +1000,11 @@ export const products = [
     avgRating: 4.8,
   },
   {
-    id: "30",
+    id: "507",
     productName: "One Plus Nord",
     imgUrl: phone04,
     category: "mobile",
+    color: 'Red',
     price: 799,
     prevPrice:900,
     discount:5,
