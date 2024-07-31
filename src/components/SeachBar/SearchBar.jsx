@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { SlMagnifier } from "react-icons/sl";
 import { useSelector } from "react-redux";
 // import useDebounce from "../../hooks/useDebounce";
+import { useNavigate } from "react-router-dom";
 
 const SearchContainer = styled.div`
   position: relative;
@@ -10,7 +11,7 @@ const SearchContainer = styled.div`
   align-items: center;
   max-width: 440px;
   height: 50px;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 50px;
   background-color: #f2f2f2;
   width: 100%;
@@ -27,33 +28,90 @@ const SearchContainer = styled.div`
     background: transparent;
   }
 `;
+const SuggestionsList = styled.ul`
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 11;
+  li {
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
+`;
 
 const SearchBar = ({ setFilterList }) => {
   const [searchWord, setSearchWord] = useState(null);
   const products = useSelector((state) => state.cart.products);
+  const [suggestions, setSuggestions] = useState([]);
+  const categories = [...new Set(products.map((product) => product.category))];
+  const navigate = useNavigate();
   // const debounceSearchWord = useDebounce(searchWord, 300);
-  useEffect(() => {
-    if (searchWord === null) {
-      setFilterList(products);
-    } else {
-      setFilterList(
-        products.filter((item) =>
-          item.productName?.toLowerCase().includes(searchWord.toLowerCase())
-        )
+
+  // useEffect(() => {
+  //   if (searchWord === null) {
+  //     setFilterList(products);
+  //   } else {
+  //     setFilterList(
+  //       products.filter((item) =>
+  //         item.productName?.toLowerCase().includes(searchWord.toLowerCase())
+  //       )
+  //     );
+  //   }
+  // }, [searchWord, setFilterList, products]);
+
+  const handleSelect = (category) => {
+    setSearchWord(category);
+    navigate("/shop");
+    setSuggestions([]);
+    setFilterList(
+      products.filter((product) =>
+        product.category.toLowerCase().includes(category.toLowerCase())
+      )
+    );
+  };
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setSearchWord(value);
+    if (value.length > 0) {
+      const filteredSuggestions = categories.filter((category) =>
+        category.toLowerCase().includes(value.toLowerCase())
       );
+      setSuggestions(filteredSuggestions);
+    } else {
+      setSuggestions([]);
+      setFilterList(products);
     }
-  }, [searchWord, setFilterList, products]);
-  const handelChange = (input) => {
-    setSearchWord(input.target.value);
   };
   return (
     <SearchContainer>
       <input
         type="text"
-        placeholder="Search Products..."
-        onChange={handelChange}
+        placeholder="Search Categories..."
+        value={searchWord}
+        onChange={handleChange}
       />
       <SlMagnifier className="search-icon" />
+      {suggestions.length > 0 && (
+        <SuggestionsList>
+          {suggestions.map((suggestion, index) => (
+            <li key={index} onClick={() => handleSelect(suggestion)}>
+              {suggestion}
+            </li>
+          ))}
+        </SuggestionsList>
+      )}
     </SearchContainer>
   );
 };

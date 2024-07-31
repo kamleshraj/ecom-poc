@@ -18,7 +18,6 @@ const Login = lazy(() => import("./pages/Login"));
 function App() {
   const products = useSelector((state)=>state.cart.products)
   const [filterList, setFilterList] = useState(products);
-
   return (
     <Suspense fallback={<Loader />}>
       <Router>

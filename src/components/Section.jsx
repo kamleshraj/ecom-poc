@@ -14,6 +14,7 @@ const ProductWrapper = styled.div`
 `;
 
 const Section = ({ title, bgColor, productItems }) => {
+  console.log(productItems);
   return (
     <section style={{ background: bgColor }}>
       <SectionTitle>
