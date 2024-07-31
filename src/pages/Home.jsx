@@ -10,12 +10,11 @@ const Home = () => {
   );
   const bestSales = products.filter((item) => item.category === "sofa");
   const discountProducts = products.filter((item) => item.discount > 0);
-  console.log(discountProducts);
   useWindowScrollToTop();
 
   return (
     <>
-    <HomeBannerSlider/>
+      <HomeBannerSlider />
       <Section
         title="Big Discount"
         bgColor="#f6f9fc"

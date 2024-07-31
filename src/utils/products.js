@@ -86,163 +86,6 @@ export const serviceData = [
     bg: "#d6e5fb",
   },
 ];
-
-// export const discountProducts = [
-//   {
-//     id: "01",
-//     productName: "Stone and Beam Westview ",
-//     imgUrl: productImg01,
-//     category: "sofa",
-//     price: 193,
-//     discount:30,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.7,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.5,
-//   },
-//   {
-//     id: "11",
-//     productName: "Stone and Beam Westview ",
-//     imgUrl: productImg01,
-//     category: "sofa",
-//     price: 193,
-//     discount:30,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.7,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.5,
-//   },
-//   {
-//     id: "02",
-//     productName: "Rivet Bigelow Modern ",
-//     imgUrl: productImg02,
-//     category: "sofa",
-//     price: 253,
-//     discount:20,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.8,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//       {
-//         rating: 4.8,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.7,
-//   },
-//   {
-//     id: "08",
-//     productName: "Baltsar Chair",
-//     imgUrl: productImg08,
-//     category: "chair",
-//     price: 89,
-//     discount:15,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.6,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//       {
-//         rating: 4.9,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.7,
-//   },
-//   {
-//     id: "09",
-//     productName: "Helmar Chair",
-//     imgUrl: productImg09,
-//     category: "chair",
-//     price: 112,
-//     discount:35,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.6,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//       {
-//         rating: 4.9,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.7,
-//   },
-//   {
-//     id: "12",
-//     productName: "Realme 8",
-//     imgUrl: phone03,
-//     category: "mobile",
-//     price: 599,
-//     discount:10,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.8,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//       {
-//         rating: 4.9,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.8,
-//   },
-//   {
-//     id: "13",
-//     productName: "One Plus Nord",
-//     imgUrl: phone04,
-//     category: "mobile",
-//     price: 799,
-//     discount:5,
-//     shortDesc:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
-//     reviews: [
-//       {
-//         rating: 4.8,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//       {
-//         rating: 4.9,
-//         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//       },
-//     ],
-//     avgRating: 4.8,
-//   },
-// ]
-
 export const products = [
   {
     id: "01",
@@ -250,6 +93,7 @@ export const products = [
     imgUrl: productImg01,
     category: "sofa",
     price: 193,
+    color: 'Red',
     prevPrice:200,
     newPrice:190,
     shortDesc:
@@ -271,6 +115,7 @@ export const products = [
     imgUrl: productImg02,
     category: "sofa",
     price: 253,
+    color: 'Green',
     prevPrice:270,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -294,6 +139,7 @@ export const products = [
     productName: "Amazon Brand Modern Sofa",
     imgUrl: productImg03,
     category: "sofa",
+    color: 'Red',
     price: 173,
     prevPrice:200,
     shortDesc:
@@ -317,6 +163,7 @@ export const products = [
     productName: "Rivet Bigelow Modern ",
     imgUrl: productImg02,
     category: "sofa",
+    color: 'Green',
     price: 253,
     prevPrice:290,
     shortDesc:
@@ -341,6 +188,7 @@ export const products = [
     imgUrl: productImg04,
     category: "sofa",
     price: 163,
+    color: 'White',
     prevPrice:200,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -365,6 +213,7 @@ export const products = [
     imgUrl: productImg05,
     category: "sofa",
     price: 151,
+    color: 'Yellow',
     prevPrice:200,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -389,6 +238,7 @@ export const products = [
     imgUrl: productImg06,
     category: "sofa",
     price: 168,
+    color: 'Blue',
     prevPrice:200,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -411,6 +261,7 @@ export const products = [
     productName: "Sakarias Armchair",
     imgUrl: productImg07,
     category: "chair",
+    color: 'Blue',
     price: 99,
     prevPrice:200,
     shortDesc:

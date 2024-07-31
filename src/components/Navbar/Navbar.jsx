@@ -3,10 +3,10 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { SlHandbag, SlUser, SlBasket, SlHeart } from "react-icons/sl";
+import { SlHandbag, SlUser, SlBasket, SlHeart,SlGrid } from "react-icons/sl";
 import SearchBar from "../SeachBar/SearchBar";
 
-const NavBar = () => {
+const NavBar = ({setFilterList}) => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
@@ -77,9 +77,20 @@ const NavBar = () => {
           </Navbar.Toggle>
         </div> */}
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="navbar-with-search d-flex justify-content-between align-items-center flex-grow-1">
-          <SearchBar/>
-          <Nav className="justify-content-end flex-grow-1 pe-3">
+          <Nav className="navbar-with-search d-flex justify-content-between align-items-center flex-grow-1 ps-md-5">
+          <SearchBar setFilterList={setFilterList}/>
+          <Nav className="justify-content-end">
+            <Nav.Item>
+              <Link
+                aria-label="category page"
+                className="navbar-link"
+                to="/"
+                onClick={() => setExpand(false)}
+              >
+                <SlGrid className="fs-6"/> 
+                <span className="nav-link-label ps-1">Category</span>
+              </Link>
+            </Nav.Item>
             <Nav.Item>
               <Link
                 aria-label="Go to Home Page"

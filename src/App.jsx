@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
@@ -7,6 +7,7 @@ import Loader from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Favorite from "./pages/Favorite";
+import { useSelector } from "react-redux";
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -15,6 +16,9 @@ const Product = lazy(() => import("./pages/Product"));
 const Login = lazy(() => import("./pages/Login"));
 
 function App() {
+  const products = useSelector((state)=>state.cart.products)
+  const [filterList, setFilterList] = useState(products);
+
   return (
     <Suspense fallback={<Loader />}>
       <Router>
@@ -29,11 +33,11 @@ function App() {
           pauseOnHover
           theme="light"
         />
-        <NavBar />
+        <NavBar setFilterList={setFilterList}/>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:id" element={<Product />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/shop" element={<Shop setFilterList={setFilterList} filterList={filterList}/>} />
+          <Route path="/shop/:id" element={<Product/>} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/login" element={<Login/>}/>
