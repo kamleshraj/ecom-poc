@@ -31,7 +31,7 @@ export const favoriteSlice = createSlice({
     },
     deleteProduct: (state, action) => {
       const productToDelete = action.payload;
-      state.cartList = state.cartList.filter(
+      state.favoriteList = state.favoriteList.filter(
         (item) => item.id !== productToDelete.id
       );
     },
