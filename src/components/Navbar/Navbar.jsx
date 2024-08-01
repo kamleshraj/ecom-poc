@@ -2,15 +2,22 @@ import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SlHandbag, SlUser, SlBasket, SlHeart, SlGrid } from "react-icons/sl";
 import SearchBar from "../SeachBar/SearchBar";
+import { setLoggedIn } from "../../app/features/cart/cartSlice";
 
 const NavBar = ({ setFilterList }) => {
   const { cartList } = useSelector((state) => state.cart);
   const { favoriteList } = useSelector((state) => state.favorite);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(setLoggedIn(true));
+  }
   console.log(expand);
   function scrollHandler() {
     if (window.scrollY >= 100) {
@@ -69,7 +76,7 @@ const NavBar = ({ setFilterList }) => {
                 </Link>
               </Nav.Item>
               <Nav.Item>
-                <Link to="/login">
+                <Link to="/login" onClick={handleLogin}>
                   <SlUser />
                 </Link>
               </Nav.Item>

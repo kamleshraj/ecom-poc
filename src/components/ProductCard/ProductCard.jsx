@@ -9,7 +9,7 @@ import "./productCard.scss";
 const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
   const router = useNavigate();
-  const { cartList } = useSelector((state) => state.cart);
+  const { cartList,isLoggedIn} = useSelector((state) => state.cart);
   const { favoriteList } = useSelector((state) => state.favorite);
 
   const favoriteProductExit = favoriteList.find(
@@ -22,7 +22,12 @@ const ProductCard = ({ productItem, title }) => {
     router(`/shop/${productItem.id}`);
   };
 
+  
   const addCartHandler = (productItem) => {
+    if (!isLoggedIn) {
+      toast.error("You need to be logged in to add items to the cart.");
+      return;
+    }
     dispatch(addToCart({ product: productItem, num: 1 }));
     if (cartProductExit) {
       toast.error("Already Product has been added to cart!");
@@ -32,6 +37,10 @@ const ProductCard = ({ productItem, title }) => {
   };
 
   const addFavoriteHandler = (productItem) => {
+    if (!isLoggedIn) {
+      toast.error("You need to be logged in to add items to the favorite!");
+      return;
+    }
     dispatch(addToFavorite({ product: productItem, num: 1 }));
     if (favoriteProductExit) {
       toast.error("Already Product has been added to favorite!");
