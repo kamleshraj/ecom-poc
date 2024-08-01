@@ -1,8 +1,9 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import ProductCard from "./ProductCard/ProductCard";
+import { Pagination } from "react-bootstrap";
 
 const ShopList = ({ productItems }) => {
-  useEffect(() => {}, [productItems]);
+  
   
   if (productItems.length === 0) {
     return <h1 className="not-found">Product Not Found !!</h1>;

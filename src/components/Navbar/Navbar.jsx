@@ -8,6 +8,7 @@ import SearchBar from "../SeachBar/SearchBar";
 
 const NavBar = ({ setFilterList }) => {
   const { cartList } = useSelector((state) => state.cart);
+  const { favoriteList } = useSelector((state) => state.favorite);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   console.log(expand);
@@ -84,9 +85,9 @@ const NavBar = ({ setFilterList }) => {
               </Nav.Item>
               <Nav.Item className="expanded-cart position-relative">
                 <Link aria-label="Go to Favorite Page" to="/favorite">
-                  {/* {cartList.length !==0 && <span className="cart-count-badge">
-                  <span className="">{cartList.length}</span>
-                </span>} */}
+                  {favoriteList.length !==0 && <span className="cart-count-badge">
+                  <span className="">{favoriteList.length}</span>
+                </span>}
                   <SlHeart />
                 </Link>
               </Nav.Item>
