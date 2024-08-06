@@ -25,6 +25,7 @@ const Login = () => {
         password
       )
       const user = userCredential.user
+      console.log(user);
       setLoading(false)
       toast.success('Successfully logged in')
       navigate('/')
