@@ -6,6 +6,7 @@ import styled from "styled-components";
 import CustomBreadcrumbs from "../components/CustomBreadCrumbs/CustomBreadCrumbs";
 import PriceRangeSlider from "../components/PriceRangeSlider";
 import { useSelector } from "react-redux";
+import { Helmet } from "../components";
 
 const MainWrapper = styled.div`
   position: relative;
@@ -64,6 +65,7 @@ const Shop = ({ filterList, setFilterList }) => {
   }, [selectedColors, setFilterList, products]);
   return (
     <>
+    <Helmet title="Shop">
       <MainWrapper>
         <CustomBreadcrumbs />
         <div className="innerWrapper">
@@ -99,6 +101,7 @@ const Shop = ({ filterList, setFilterList }) => {
           </div>
         </div>
       </MainWrapper>
+      </Helmet>
     </>
   );
 };

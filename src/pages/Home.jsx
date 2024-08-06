@@ -2,7 +2,8 @@ import Wrapper from "../components/wrapper/Wrapper";
 import Section from "../components/Section";
 import { products } from "../utils/products";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
-import HomeBannerSlider from "../components/HomeBannerSlider/BannerSlider";
+import {HomeBannerSlider} from "../components/HomeBannerSlider";
+import { Helmet } from "../components";
 
 const Home = () => {
   const newArrivalData = products.filter(
@@ -14,6 +15,7 @@ const Home = () => {
 
   return (
     <>
+    <Helmet title="Home">
       <HomeBannerSlider />
       <Section
         title="Big Discount"
@@ -27,6 +29,7 @@ const Home = () => {
       />
       <Wrapper />
       <Section title="Best Sales" bgColor="#f6f9fc" productItems={bestSales} />
+      </Helmet>
     </>
   );
 };

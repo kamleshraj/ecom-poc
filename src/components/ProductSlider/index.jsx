@@ -1,9 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from "../ProductCard/ProductCard";
+import {ProductCard} from "../ProductCard";
 
-const ProductSlider = ({ title, SliderData }) => {
+export const ProductSlider = ({ title, SliderData }) => {
   const settings = {
     nav: false,
     infinite: true,
@@ -21,5 +21,3 @@ const ProductSlider = ({ title, SliderData }) => {
     </>
   );
 };
-
-export default ProductSlider;

@@ -3,9 +3,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../app/features/cart/cartSlice";
-import "./product-details.css";
+import "./product-details.scss";
 
-const ProductDetails = ({ selectedProduct }) => {
+export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(1);
@@ -64,5 +64,3 @@ const ProductDetails = ({ selectedProduct }) => {
     </section>
   );
 };
-
-export default ProductDetails;

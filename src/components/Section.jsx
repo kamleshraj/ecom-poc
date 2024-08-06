@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ProductSlider from "./ProductSlider/ProductSlider";
+import {ProductSlider} from "./ProductSlider";
 
 const SectionTitle = styled.div`
 padding: 40px 0 15px 30px;
@@ -14,7 +14,6 @@ const ProductWrapper = styled.div`
 `;
 
 const Section = ({ title, bgColor, productItems }) => {
-  console.log(productItems);
   return (
     <section style={{ background: bgColor }}>
       <SectionTitle>

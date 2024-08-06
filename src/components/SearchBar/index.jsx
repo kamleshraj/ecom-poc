@@ -50,7 +50,7 @@ const SuggestionsList = styled.ul`
   }
 `;
 
-const SearchBar = ({ setFilterList }) => {
+export const SearchBar = ({ setFilterList }) => {
   const [searchWord, setSearchWord] = useState(null);
   const products = useSelector((state) => state.cart.products);
   const [suggestions, setSuggestions] = useState([]);
@@ -115,5 +115,3 @@ const SearchBar = ({ setFilterList }) => {
     </SearchContainer>
   );
 };
-
-export default SearchBar;

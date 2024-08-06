@@ -1,5 +1,5 @@
 import { memo } from "react";
-import ProductCard from "./ProductCard/ProductCard";
+import {ProductCard} from "./ProductCard";
 
 const ShopList = ({ productItems }) => {
   if (productItems.length === 0) {

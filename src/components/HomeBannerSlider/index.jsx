@@ -6,7 +6,7 @@ import { SliderData } from "../../utils/products";
 import { Link } from "react-router-dom";
 import "./homeBannerSlider.scss";
 
-const HomeBannerSlider = () => {
+export const HomeBannerSlider = () => {
   const settings = {
     dots: true,
     speed: 1000,
@@ -41,5 +41,3 @@ const HomeBannerSlider = () => {
     </section>
   );
 };
-
-export default HomeBannerSlider;

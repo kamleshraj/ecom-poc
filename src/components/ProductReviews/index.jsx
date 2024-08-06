@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
-import "./product-review.css";
+import "./product-review.scss";
 
-const ProductReviews = ({ selectedProduct }) => {
+export const ProductReviews = ({ selectedProduct }) => {
   const [listSelected, setListSelected] = useState("desc");
   return (
     <section className="product-reviews">
@@ -38,5 +38,3 @@ const ProductReviews = ({ selectedProduct }) => {
     </section>
   );
 };
-
-export default ProductReviews;

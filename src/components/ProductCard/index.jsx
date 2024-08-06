@@ -3,14 +3,28 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../app/features/cart/cartSlice";
 import { addToFavorite } from "../../app/features/favorite/favoriteSlice";
-import { HiHeart,HiOutlineHeart, HiMiniShoppingCart,HiOutlineShoppingCart,HiOutlineEye } from "react-icons/hi2";
+import {
+  HiHeart,
+  HiOutlineHeart,
+  HiMiniShoppingCart,
+  HiOutlineShoppingCart,
+  HiOutlineEye,
+} from "react-icons/hi2";
 import "./productCard.scss";
+import useAuth from "../../hooks/useAuth";
+import { CustomModal } from "../CustomModal";
+import { useState } from "react";
 
-const ProductCard = ({ productItem, title }) => {
+export const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
-  const router = useNavigate();
-  const { cartList,isLoggedIn} = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+  const { cartList } = useSelector((state) => state.cart);
   const { favoriteList } = useSelector((state) => state.favorite);
+  const { currentUser } = useAuth();
+
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
   const favoriteProductExit = favoriteList.find(
     (item) => item.id === productItem.id
@@ -19,15 +33,10 @@ const ProductCard = ({ productItem, title }) => {
   const cartProductExit = cartList.find((item) => item.id === productItem.id);
 
   const handelClick = () => {
-    router(`/shop/${productItem.id}`);
+    navigate(`/shop/${productItem.id}`);
   };
 
-  
   const addCartHandler = (productItem) => {
-    if (!isLoggedIn) {
-      toast.error("You need to be logged in to add items to the cart.");
-      return;
-    }
     dispatch(addToCart({ product: productItem, num: 1 }));
     if (cartProductExit) {
       toast.error("Already Product has been added to cart!");
@@ -37,19 +46,25 @@ const ProductCard = ({ productItem, title }) => {
   };
 
   const addFavoriteHandler = (productItem) => {
-    if (!isLoggedIn) {
-      toast.error("You need to be logged in to add items to the favorite!");
-      return;
-    }
-    dispatch(addToFavorite({ product: productItem, num: 1 }));
-    if (favoriteProductExit) {
-      toast.error("Already Product has been added to favorite!");
+    if (currentUser) {
+      dispatch(addToFavorite({ product: productItem, num: 1 }));
+      if (favoriteProductExit) {
+        toast.error("Already Product has been added to favorite!");
+      } else {
+        toast.success("Product has been added to favorite!");
+      }
     } else {
-      toast.success("Product has been added to favorite!");
+      handleShowModal();
     }
   };
   return (
     <div className="product-wrapper">
+      <CustomModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        title="User Authentication"
+        description="Please login to add product in favorite item"
+      />
       {title === "Big Discount" ? (
         <span className="discount">{productItem.discount}% Off</span>
       ) : null}
@@ -75,12 +90,14 @@ const ProductCard = ({ productItem, title }) => {
         <button
           aria-label="Add Favorite"
           type="submit"
-          onClick={() => addFavoriteHandler(productItem)}
+          onClick={() => {
+            addFavoriteHandler(productItem);
+          }}
         >
           {favoriteProductExit ? (
             <HiHeart style={{ color: "#ff5533" }} />
           ) : (
-            <HiOutlineHeart/>
+            <HiOutlineHeart />
           )}
         </button>
         <button onClick={() => handelClick()}>
@@ -121,5 +138,3 @@ const ProductCard = ({ productItem, title }) => {
     </div>
   );
 };
-
-export default ProductCard;

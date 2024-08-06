@@ -8,7 +8,8 @@ const storedCartList =
 const initialState = {
   cartList: storedCartList,
   products:products,
-  isLoggedIn: false,
+  isOpenModal: false,
+  message: '',
 };
 
 export const cartSlice = createSlice({
@@ -54,9 +55,14 @@ export const cartSlice = createSlice({
         (item) => item.id !== productToDelete.id
       );
     },
-    setLoggedIn: (state, action) => {
-      state.isLoggedIn = action.payload;
+    showModal:(state,action)=>{
+      state.isOpenModal = true;
+      state.message = action.payload;
     },
+    hideModal:(state)=>{
+      state.isOpenModal = false;
+      state.message = '';
+    }
   },
 });
 
@@ -69,6 +75,6 @@ export const cartMiddleware = (store) => (next) => (action) => {
   return result;
 };
 
-export const { addToCart, decreaseQty, deleteProduct, setLoggedIn } = cartSlice.actions;
+export const { addToCart, decreaseQty, deleteProduct, showModal,hideModal } = cartSlice.actions;
 
 export default cartSlice.reducer;

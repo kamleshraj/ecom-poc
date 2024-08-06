@@ -6,6 +6,8 @@ import {
   decreaseQty,
   deleteProduct,
 } from "../app/features/cart/cartSlice";
+import { Link } from "react-router-dom";
+import { Helmet } from "../components";
 
 const Cart = () => {
   const { cartList } = useSelector((state) => state.cart);
@@ -17,12 +19,9 @@ const Cart = () => {
   );
   useEffect(() => {
     window.scrollTo(0, 0);
-    // if(CartItem.length ===0) {
-    //   const storedCart = localStorage.getItem("cartItem");
-    //   setCartItem(JSON.parse(storedCart));
-    // }
   }, []);
   return (
+    <Helmet title="Cart">
     <section className="cart-items pt-3">
       <Container>
         <Row className="justify-content-center">
@@ -83,11 +82,13 @@ const Cart = () => {
                 <h4>Total Price :</h4>
                 <h3>${totalPrice}.00</h3>
               </div>
+              <Link to='/checkout' className="btn btn-warning">CheckOut</Link>
             </div>
           </Col>
         </Row>
       </Container>
     </section>
+    </Helmet>
   );
 };
 

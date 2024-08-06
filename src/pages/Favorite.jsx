@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {deleteProduct} from "../app/features/favorite/favoriteSlice";
+import { Helmet } from "../components";
 
 const Favorite = () => {
   const { favoriteList } = useSelector((state) => state.favorite);
@@ -9,12 +10,9 @@ const Favorite = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // if(CartItem.length ===0) {
-    //   const storedCart = localStorage.getItem("cartItem");
-    //   setCartItem(JSON.parse(storedCart));
-    // }
   }, []);
   return (
+    <Helmet title="Favorite">
     <section className="cart-items pt-3">
       <Container>
         <Row className="justify-content-center">
@@ -55,6 +53,7 @@ const Favorite = () => {
         </Row>
       </Container>
     </section>
+    </Helmet>
   );
 };
 

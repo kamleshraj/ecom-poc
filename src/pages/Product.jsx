@@ -2,10 +2,11 @@ import {useEffect, useState } from "react";
 import Banner from "../components/Banner/Banner";
 import { products } from "../utils/products";
 import { useParams } from "react-router-dom";
-import ProductDetails from "../components/ProductDetails/ProductDetails";
-import ProductReviews from "../components/ProductReviews/ProductReviews";
+import {ProductDetails} from "../components/ProductDetails";
+import {ProductReviews} from "../components/ProductReviews";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import Section from "../components/Section";
+import { Helmet } from "../components";
 
 
 
@@ -33,6 +34,7 @@ const Product = () => {
 
   return (
     <>
+    <Helmet title="Product Details">
       <Banner title={selectedProduct?.productName} />
       <ProductDetails selectedProduct={selectedProduct} />
       <ProductReviews selectedProduct={selectedProduct} />
@@ -41,6 +43,7 @@ const Product = () => {
         bgColor="#f6f9fc"
         productItems={relatedProducts}
       />
+      </Helmet>
     </>
   );
 };

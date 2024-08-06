@@ -2,22 +2,17 @@ import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { SlHandbag, SlUser, SlBasket, SlHeart, SlGrid } from "react-icons/sl";
-import SearchBar from "../SeachBar/SearchBar";
-import { setLoggedIn } from "../../app/features/cart/cartSlice";
+import {SearchBar} from "../SearchBar";
+import useAuth from "../../hooks/useAuth";
 
-const NavBar = ({ setFilterList }) => {
+export const CustomNavbar = ({ setFilterList }) => {
   const { cartList } = useSelector((state) => state.cart);
   const { favoriteList } = useSelector((state) => state.favorite);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const handleLogin = () => {
-    dispatch(setLoggedIn(true));
-  }
+  const { currentUser, Logout } = useAuth();
   console.log(expand);
   function scrollHandler() {
     if (window.scrollY >= 100) {
@@ -28,6 +23,7 @@ const NavBar = ({ setFilterList }) => {
   }
   window.addEventListener("scroll", scrollHandler);
   return (
+    
     <Navbar expand="md" className={isFixed ? "navbar fixedNavbar" : "navbar"}>
       <Container fluid className="navbar-container">
         <Navbar.Brand>
@@ -56,17 +52,6 @@ const NavBar = ({ setFilterList }) => {
               </Nav.Item>
               <Nav.Item>
                 <Link
-                  aria-label="Go to Home Page"
-                  className="navbar-link"
-                  to="/"
-                  onClick={() => setExpand(false)}
-                >
-                  <span className="nav-link-label">Home</span>
-                </Link>
-              </Nav.Item>
-
-              <Nav.Item>
-                <Link
                   aria-label="Go to Products Page"
                   className="navbar-link"
                   to="/shop"
@@ -75,11 +60,19 @@ const NavBar = ({ setFilterList }) => {
                   <span className="nav-link-label">Shop</span>
                 </Link>
               </Nav.Item>
-              <Nav.Item>
-                <Link to="/login" onClick={handleLogin}>
-                  <SlUser />
-                </Link>
-              </Nav.Item>
+              {currentUser ? (
+                <Nav.Item>
+                  <Link onClick={Logout}>
+                    <SlUser /> Logout
+                  </Link>
+                </Nav.Item>
+              ) : (
+                <Nav.Item>
+                  <Link to="/login">
+                    <SlUser />
+                  </Link>
+                </Nav.Item>
+              )}
               <Nav.Item className="expanded-cart position-relative">
                 <Link aria-label="Go to Cart Page" to="/cart">
                   {cartList.length !== 0 && (
@@ -92,9 +85,11 @@ const NavBar = ({ setFilterList }) => {
               </Nav.Item>
               <Nav.Item className="expanded-cart position-relative">
                 <Link aria-label="Go to Favorite Page" to="/favorite">
-                  {favoriteList.length !==0 && <span className="cart-count-badge">
-                  <span className="">{favoriteList.length}</span>
-                </span>}
+                  {favoriteList.length !== 0 && (
+                    <span className="cart-count-badge">
+                      <span className="">{favoriteList.length}</span>
+                    </span>
+                  )}
                   <SlHeart />
                 </Link>
               </Nav.Item>
@@ -105,5 +100,3 @@ const NavBar = ({ setFilterList }) => {
     </Navbar>
   );
 };
-
-export default NavBar;
