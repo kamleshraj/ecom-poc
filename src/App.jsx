@@ -6,17 +6,18 @@ import Footer from "./components/Footer/Footer";
 import {Loader} from "./components/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Favorite from "./pages/Favorite";
 import { useSelector } from "react-redux";
-import SignUp from "./pages/SignUp";
 import ProtectedRouter from "./routers/ProtectedRoute";
-import CheckOut from "./pages/CheckOut";
+
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Product = lazy(() => import("./pages/Product"));
 const Login = lazy(() => import("./pages/Login"));
+const SignUp = lazy(() => import("./pages/SignUp"));
+const CheckOut = lazy(() => import("./pages/CheckOut"));
+const Favorite = lazy(() => import("./pages/Favorite"));
 
 function App() {
   const products = useSelector((state)=>state.cart.products)
