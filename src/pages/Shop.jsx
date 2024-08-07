@@ -3,7 +3,7 @@ import ShopList from "../components/ShopList";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import styled from "styled-components";
 import CustomBreadcrumbs from "../components/CustomBreadCrumbs/CustomBreadCrumbs";
-import PriceRangeSlider from "../components/PriceRangeSlider";
+import {PriceRangeSlider} from "../components/PriceRangeSlider";
 import { useSelector } from "react-redux";
 import { Helmet } from "../components";
 import ColorFilter from "../components/ColorFilter";
@@ -37,37 +37,34 @@ const MainWrapper = styled.div`
   }
 `;
 
-
 const Shop = () => {
-  const filteredProducts = useSelector((state) => state.products.filteredProducts);
-  
+  const filteredProducts = useSelector(
+    (state) => state.products.filteredProducts
+  );
+
   useWindowScrollToTop();
 
-  
   return (
     <>
-    <Helmet title="Shop">
-      <MainWrapper>
-        <CustomBreadcrumbs />
-        <div className="innerWrapper">
-          <aside className="category-sidebar">
-            <h5>Filters</h5>
-            <FilterSelect/>
-            <PriceRangeSlider/>
-            <div className="filter-product-by-color">
-              <h5>Colors</h5>
-              <ColorFilter/>
+      <Helmet title="Shop">
+        <MainWrapper>
+          <CustomBreadcrumbs />
+          <div className="innerWrapper">
+            <aside className="category-sidebar">
+              <h5 className="section-title">Filters by</h5>
+              <FilterSelect />
+              <PriceRangeSlider />
+              <ColorFilter />
+            </aside>
+            <div
+              className={`productsWrapper ${
+                filteredProducts.length < 4 ? "card-width" : "null"
+              }`}
+            >
+              <ShopList productItems={filteredProducts} />
             </div>
-          </aside>
-          <div
-            className={`productsWrapper ${
-              filteredProducts.length < 4 ? "card-width" : "null"
-            }`}
-          >
-            <ShopList productItems={filteredProducts} />
           </div>
-        </div>
-      </MainWrapper>
+        </MainWrapper>
       </Helmet>
     </>
   );

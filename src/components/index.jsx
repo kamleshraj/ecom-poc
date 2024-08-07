@@ -6,4 +6,5 @@ export {ProductCard} from './ProductCard/index';
 export {ProductDetails} from './ProductDetails/index';
 export {ProductReviews} from './ProductReviews/index'
 export {SearchBar} from './SearchBar/index';
-export {CustomModal} from './CustomModal/index'
+export {CustomModal} from './CustomModal/index';
+export {PriceRangeSlider} from './PriceRangeSlider';

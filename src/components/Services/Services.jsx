@@ -15,7 +15,7 @@ const ServiceWrapper= styled.section`
   }
 `;
 
-const Wrapper = () => {
+const Services = () => {
   return (
       <ServiceWrapper>
         {serviceData.map((item, index) => {
@@ -33,4 +33,4 @@ const Wrapper = () => {
   )
 }
 
-export default Wrapper
+export default Services

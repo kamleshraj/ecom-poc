@@ -1,11 +1,12 @@
-import Wrapper from "../components/wrapper/Wrapper";
 import Section from "../components/Section";
-import { products } from "../utils/products";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import {HomeBannerSlider} from "../components/HomeBannerSlider";
 import { Helmet } from "../components";
+import Services from "../components/Services/Services";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const {products} = useSelector((state)=>state.products)
   const newArrivalData = products.filter(
     (item) => item.category === "mobile" || item.category === "wireless"
   );
@@ -27,7 +28,7 @@ const Home = () => {
         bgColor="white"
         productItems={newArrivalData}
       />
-      <Wrapper />
+      <Services/>
       <Section title="Best Sales" bgColor="#f6f9fc" productItems={bestSales} />
       </Helmet>
     </>

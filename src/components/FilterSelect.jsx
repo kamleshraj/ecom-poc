@@ -29,7 +29,7 @@ const FilterSelect = () => {
   return (
     <Select
       options={options}
-      defaultValue={{ value: 'all', label: 'Filter By Category' }}
+      defaultValue={{ value: 'all', label: 'Category' }}
       styles={customStyles}
       onChange={handleChange}
     />
