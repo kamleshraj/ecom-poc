@@ -7,7 +7,7 @@ import { SlHandbag, SlUser, SlBasket, SlHeart, SlGrid } from "react-icons/sl";
 import {SearchBar} from "../SearchBar";
 import useAuth from "../../hooks/useAuth";
 
-export const CustomNavbar = ({ setFilterList }) => {
+export const CustomNavbar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const { favoriteList } = useSelector((state) => state.favorite);
   const [expand, setExpand] = useState(false);
@@ -37,7 +37,7 @@ export const CustomNavbar = ({ setFilterList }) => {
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-with-search d-flex justify-content-between align-items-center flex-grow-1 ps-md-5">
-            <SearchBar setFilterList={setFilterList} />
+            <SearchBar />
             <Nav className="justify-content-end">
               <Nav.Item>
                 <Link

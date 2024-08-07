@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { SlMagnifier } from "react-icons/sl";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import useDebounce from "../../hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
+import { setSelectedCategory } from "../../app/features/products/productSlice";
 
 const SearchContainer = styled.div`
   position: relative;
@@ -50,12 +51,13 @@ const SuggestionsList = styled.ul`
   }
 `;
 
-export const SearchBar = ({ setFilterList }) => {
-  const [searchWord, setSearchWord] = useState(null);
-  const products = useSelector((state) => state.cart.products);
+export const SearchBar = () => {
+  const [searchText, setSearchText] = useState('');
+  const { products } = useSelector((state) => state.products);
   const [suggestions, setSuggestions] = useState([]);
   const categories = [...new Set(products.map((product) => product.category))];
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   // const debounceSearchWord = useDebounce(searchWord, 300);
 
   // useEffect(() => {
@@ -71,19 +73,17 @@ export const SearchBar = ({ setFilterList }) => {
   // }, [searchWord, setFilterList, products]);
 
   const handleSelect = (category) => {
-    setSearchWord(category);
+    if (typeof category !== "string" || category.trim() === "") return;
+    setSearchText(category);
     navigate("/shop");
     setSuggestions([]);
-    setFilterList(
-      products.filter((product) =>
-        product.category.toLowerCase().includes(category.toLowerCase())
-      )
-    );
+    dispatch(setSelectedCategory(category));
   };
 
   const handleChange = (event) => {
     const value = event.target.value;
-    setSearchWord(value);
+    setSearchText(value);
+
     if (value.length > 0) {
       const filteredSuggestions = categories.filter((category) =>
         category.toLowerCase().includes(value.toLowerCase())
@@ -91,7 +91,7 @@ export const SearchBar = ({ setFilterList }) => {
       setSuggestions(filteredSuggestions);
     } else {
       setSuggestions([]);
-      setFilterList(products);
+      setSelectedCategory(products);
     }
   };
   return (
@@ -99,7 +99,7 @@ export const SearchBar = ({ setFilterList }) => {
       <input
         type="text"
         placeholder="Search Categories..."
-        value={searchWord}
+        value={searchText}
         onChange={handleChange}
       />
       <SlMagnifier className="search-icon" />

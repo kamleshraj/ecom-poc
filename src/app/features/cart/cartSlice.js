@@ -1,15 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { products } from "../../../utils/products";
 const storedCartList =
   localStorage.getItem("cartList") !== null
     ? JSON.parse(localStorage.getItem("cartList"))
     : [];
 
 const initialState = {
-  cartList: storedCartList,
-  products:products,
-  isOpenModal: false,
-  message: '',
+  cartList: storedCartList
 };
 
 export const cartSlice = createSlice({
@@ -75,6 +71,6 @@ export const cartMiddleware = (store) => (next) => (action) => {
   return result;
 };
 
-export const { addToCart, decreaseQty, deleteProduct, showModal,hideModal } = cartSlice.actions;
+export const { addToCart, decreaseQty, deleteProduct} = cartSlice.actions;
 
 export default cartSlice.reducer;

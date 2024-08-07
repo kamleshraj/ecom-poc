@@ -3,7 +3,7 @@ import {ProductCard} from "./ProductCard";
 
 const ShopList = ({ productItems }) => {
   if (productItems.length === 0) {
-    return <h1 className="not-found">Product Not Found !!</h1>;
+    return <h4 className="not-found">Product Not Found !!</h4>;
   }
   return (
     <>

@@ -187,7 +187,7 @@ export const products = [
     productName: "Fllufy Sheep Sofa",
     imgUrl: productImg04,
     category: "sofa",
-    price: 163,
+    price: 900,
     color: 'White',
     prevPrice:200,
     shortDesc:

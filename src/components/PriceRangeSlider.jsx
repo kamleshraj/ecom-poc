@@ -1,35 +1,34 @@
-import { useEffect, useState } from "react";
+import React, {useState } from "react";
+import { useDispatch } from "react-redux";
+import { setProductPriceRange } from "../app/features/products/productSlice";
 
-const PriceRangeSlider=({setFilterList,products})=>{
-    const [priceRange, setPriceRange] = useState([50, 100]);
-    const handleSliderChange = (event) => {
-        const value = event.target.value.split(',').map(Number);
-        setPriceRange(value);
-      };
-    
-      useEffect(() => {
-        const filteredProducts = products.filter(product =>
-          product.price >= priceRange[50] && product.price <= priceRange[100]
-        );
-        setFilterList(filteredProducts);
-      }, [priceRange, setFilterList, products]);
-    return(
-        <div className="filter-product-by-price">
-        <h5>Price</h5>
-        <input
+const PriceRangeSlider = () => {
+  const [priceRange, setPriceRange] = useState(200);
+  const dispatch = useDispatch();
+
+  const handlePriceChange = (event) => {
+    const value = event.target.value;
+    setPriceRange(value)
+    dispatch(setProductPriceRange(value));
+  };
+
+  return (
+    <div className="filter-product-by-price">
+      <h5>Price</h5>
+      <input
         type="range"
-        min="0"
-        max="100"
-        value={priceRange.join(',')}
-        onChange={handleSliderChange}
+        min="50"
+        max="1000"
+        value={priceRange}
+        onChange={handlePriceChange}
         step="1"
       />
       <div>
-        <span>Min: {priceRange[0]}</span>
-        <span>Max: {priceRange[1]}</span>
+        <span>Min: 50</span>
+        <span>Max: {priceRange}</span>
       </div>
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default PriceRangeSlider
+export default PriceRangeSlider;
