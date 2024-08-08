@@ -38,15 +38,19 @@ const SuggestionsList = styled.ul`
   border-radius: 8px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  left: 0;
   max-height: 200px;
   overflow-y: auto;
   z-index: 11;
   li {
-    padding: 10px;
+    padding: 10px 10px 10px 25px;
     cursor: pointer;
+    border-bottom: 1px solid #e9e9e973;
     &:hover {
       background-color: #f2f2f2;
+    }
+    &:last-child(){
+      border-bottom: transparent;
     }
   }
 `;

@@ -37,7 +37,6 @@ const Product = () => {
   return (
     <>
     <Helmet title="Product Details">
-      {/* <Banner title={selectedProduct?.productName} /> */}
       <CustomBreadcrumbs/>
       <ProductDetails selectedProduct={selectedProduct} />
       <ProductReviews selectedProduct={selectedProduct} />

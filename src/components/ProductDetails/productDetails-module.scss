@@ -1,0 +1,26 @@
+.productDetailWrapper{
+    padding-top: 5px;
+    .product-info{
+        padding-left: 0;
+        li{
+            padding-bottom: 7px;
+        }
+        .rate{
+            display: flex;
+            align-items: center;
+            justify-content:flex-start;
+            gap: 10px;
+            .stars{color:rgb(255, 174, 76);padding-bottom: 5px;}
+        }
+    }
+    .btn-lists{
+        display: flex;
+        gap: 10px;
+        button{
+            padding: 8px 30px;
+            &:hover{
+                background-color: red;
+            }
+        }
+    }
+}

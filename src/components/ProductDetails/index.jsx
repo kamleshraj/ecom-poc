@@ -1,62 +1,63 @@
-import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../app/features/cart/cartSlice";
-import "./product-details.scss";
+import { SlBasket} from "react-icons/sl";
+import "./productDetails-module.scss";
 
 export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
-
-  const [quantity, setQuantity] = useState(1);
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-  };
-  const handelAdd = (selectedProduct, quantity) => {
-    dispatch(addToCart({ product: selectedProduct, num: quantity }));
+  const handelAdd = (selectedProduct) => {
+    dispatch(addToCart({ product: selectedProduct }));
     toast.success("Product has been added to cart!");
   };
 
   return (
-    <section className="product-page">
+    <section className="productDetailWrapper">
       <Container>
         <Row className="align-items-center justify-content-center">
           <Col md={6}>
-            <img loading="lazy" src={selectedProduct?.imgUrl} alt={selectedProduct.title} />
+            <img
+              loading="lazy"
+              src={selectedProduct?.imgUrl}
+              alt={selectedProduct.title}
+              className="img-fluid"
+            />
           </Col>
           <Col md={6}>
-            <h2>{selectedProduct?.productName}</h2>
-            <div className="rate">
-              <div className="stars">
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-              </div>
-              <span>{selectedProduct?.avgRating} ratings</span>
-            </div>
-            <div className="info">
-              <span className="price">${selectedProduct?.price}</span>
-              <span>category:{selectedProduct?.category}</span>
-            </div>
-            <p>{selectedProduct?.shortDesc}</p>
-            <input
-              className="qty-input"
-              type="number"
-              placeholder="Qty"
-              value={quantity}
-              onChange={handleQuantityChange}
-            />
-            <div>
-            <button
-              aria-label="Add"
-              type="submit"
-              className="btn btn-warning"
-              onClick={() => handelAdd(selectedProduct, quantity)}
-            >
-              Add To Cart
-            </button>
+            <ul className="product-info">
+              <li>
+                <div className="text-capitalize">
+                  {selectedProduct?.category}
+                </div>
+                <h4>{selectedProduct?.productName}</h4>
+              </li>
+              <li className="rate">
+                <div className="stars">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                </div>
+                <span>{selectedProduct?.avgRating} ratings</span>
+              </li>
+              <li className="d-flex align-items-center gap-3">
+               {<del className="text-secondary">{selectedProduct.prevPrice}</del>}
+               {<h2>${selectedProduct?.price}</h2>}
+              </li>
+              <li>{selectedProduct?.description}</li>
+            </ul>
+            <div className="btn-lists">
+              <button
+                aria-label="Add"
+                type="submit"
+                className="btn btn-warning d-flex align-items-center gap-1"
+                onClick={() => handelAdd(selectedProduct)}
+              >
+              <SlBasket/>  Add To Cart
+              </button>
+              <button className="btn btn-danger">Buy Now</button>
             </div>
           </Col>
         </Row>

@@ -1,0 +1,21 @@
+.breadCumWrapper{
+    background-color: #000;
+    ol{
+        margin-bottom: 0;
+        padding: 10px;
+        a{
+            font-size: 1.1rem;
+            text-transform: capitalize;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            &:hover{
+                color: #275df5;
+            }
+            svg{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

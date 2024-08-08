@@ -3,20 +3,16 @@ import { Container } from 'react-bootstrap';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { IoMdHome } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-
-const CustomBreadCumWrapper = styled.div`
-  background-color: #000;
-`;
+import styles from './BreadCum.module.scss'
 
 const CustomBreadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   return (
-  <CustomBreadCumWrapper>
+  <div className={`${styles.breadCumWrapper}`}>
   <Container fluid>
-    <Breadcrumb className='p-1 mb-0'>
+    <Breadcrumb className=''>
       <Link to="/" className="breadcrumb-item">
         <IoMdHome />
       </Link>
@@ -30,7 +26,7 @@ const CustomBreadcrumbs = () => {
       })}
     </Breadcrumb>
   </Container>
-  </CustomBreadCumWrapper>
+  </div>
   );
 };
 
