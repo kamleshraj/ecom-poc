@@ -38,9 +38,7 @@ const MainWrapper = styled.div`
 `;
 
 const Shop = () => {
-  const filteredProducts = useSelector(
-    (state) => state.products.filteredProducts
-  );
+  const filteredProducts = useSelector((state) => state.products.filteredProducts);
 
   useWindowScrollToTop();
 

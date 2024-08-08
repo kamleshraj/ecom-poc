@@ -56,6 +56,7 @@ export const SearchBar = () => {
   const { products } = useSelector((state) => state.products);
   const [suggestions, setSuggestions] = useState([]);
   const categories = [...new Set(products.map((product) => product.category))];
+  console.log(categories);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const debounceSearchWord = useDebounce(searchWord, 300);
@@ -85,9 +86,13 @@ export const SearchBar = () => {
     setSearchText(value);
 
     if (value.length > 0) {
-      const filteredSuggestions = categories.filter((category) =>
-        category.toLowerCase().includes(value.toLowerCase())
-      );
+      const filteredSuggestions = categories
+        .filter((category) =>
+          category.toLowerCase().includes(value.toLowerCase())
+        )
+        .map((category) =>
+          category.charAt(0).toUpperCase() + category.slice(1)
+        );
       setSuggestions(filteredSuggestions);
     } else {
       setSuggestions([]);

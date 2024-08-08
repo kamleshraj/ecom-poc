@@ -1,11 +1,14 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setProductPriceRange } from "../../app/features/products/productSlice";
 import styled from "styled-components";
 
-const FilteredProductByPriceWrapper= styled.div`
+const FilteredProductByPriceWrapper = styled.div`
   margin-top: 20px;
-  .min-text, .max-text{font-size:.7rem}
+  .min-text,
+  .max-text {
+    font-size: 0.7rem;
+  }
 `;
 
 export const PriceRangeSlider = () => {
@@ -14,7 +17,7 @@ export const PriceRangeSlider = () => {
 
   const handlePriceChange = (event) => {
     const value = event.target.value;
-    setPriceRange(value)
+    setPriceRange(value);
     dispatch(setProductPriceRange(value));
   };
 

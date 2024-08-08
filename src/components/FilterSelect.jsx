@@ -11,12 +11,12 @@ const FilterSelect = () => {
   };
 
   const options = [
-    { value: "all", label: "All" },
-    { value: "sofa", label: "Sofa" },
-    { value: "chair", label: "Chair" },
-    { value: "watch", label: "Watch" },
-    { value: "mobile", label: "Mobile" },
-    { value: "wireless", label: "Wireless" },
+    { value: "All", label: "All" },
+    { value: "Sofa", label: "Sofa" },
+    { value: "Chair", label: "Chair" },
+    { value: "Watch", label: "Watch" },
+    { value: "Mobile", label: "Mobile" },
+    { value: "Wireless", label: "Wireless" },
   ];
 
   const customStyles = {
@@ -29,7 +29,7 @@ const FilterSelect = () => {
   return (
     <Select
       options={options}
-      defaultValue={{ value: 'all', label: 'Category' }}
+      defaultValue={{ value: 'All', label: 'Category' }}
       styles={customStyles}
       onChange={handleChange}
     />

@@ -9,15 +9,16 @@ const initialState = {
   selectedColors: [],
 };
 
-const filterProducts = (products, category, color = [], searchTerm = '', price=0) => {
-    return products.filter((item) => {
-      const matchesCategory = category === 'all' || item.category === category;
-      const matchesColor = !color || color.length === 0 || color.includes(item.color);
-      const matchesSearch = item.name && searchTerm ? item.name.toLowerCase().includes(searchTerm.toLowerCase()) : true;
-      const filteredPrice = price > 0 ? item.price <= price: true
-      return matchesCategory && matchesColor && matchesSearch && filteredPrice;
-    });
-  };
+const filterProducts = (products, category, color = [], searchTerm = '', price = 0) => {
+  return products.filter((item) => {
+    const matchesCategory = category === 'All' || item.category.toLowerCase() === category.toLowerCase();
+    const matchesColor = !color || color.length === 0 || color.includes(item.color);
+    const matchesSearch = item.name && searchTerm ? item.name.toLowerCase().includes(searchTerm.toLowerCase()) : true;
+    const filteredPrice = price > 0 ? item.price <= price : true;
+
+    return matchesCategory && matchesColor && matchesSearch && filteredPrice;
+  });
+};
 
 const productsSlice = createSlice({
   name: 'products',

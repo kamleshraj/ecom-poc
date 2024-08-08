@@ -1,15 +1,37 @@
+import React from 'react';
+import { Container } from 'react-bootstrap';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import { IoMdHome } from "react-icons/io";
+import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
-const CustomBreadCrumbs =()=>{
+const CustomBreadCumWrapper = styled.div`
+  background-color: #000;
+`;
+
+const CustomBreadcrumbs = () => {
+  const location = useLocation();
+  const pathnames = location.pathname.split('/').filter((x) => x);
+
   return (
-    <Breadcrumb className='bg-dark p-1'>
-      <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-      <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-        Library
-      </Breadcrumb.Item>
-      <Breadcrumb.Item active>Data</Breadcrumb.Item>
+  <CustomBreadCumWrapper>
+  <Container fluid>
+    <Breadcrumb className='p-1 mb-0'>
+      <Link to="/" className="breadcrumb-item">
+        <IoMdHome />
+      </Link>
+      {pathnames.map((value, index) => {
+        const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+        return (
+          <Breadcrumb.Item key={to} linkAs={Link} linkProps={{ to }}>
+            {value}
+          </Breadcrumb.Item>
+        );
+      })}
     </Breadcrumb>
+  </Container>
+  </CustomBreadCumWrapper>
   );
-}
+};
 
-export default CustomBreadCrumbs;
+export default CustomBreadcrumbs;
