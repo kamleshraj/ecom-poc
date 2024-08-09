@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { products } from "../../../utils/products";
 
 const initialState = {
-  products: products,
-  filteredProducts: products,
+  products: [],
+  filteredProducts: [],
   searchWord: '',
-  selectedCategory: 'all',
+  selectedCategory: 'All',
   selectedColors: [],
 };
 
@@ -26,7 +25,7 @@ const productsSlice = createSlice({
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
-      state.filteredProducts = action.payload;
+      //state.filteredProducts = action.payload;
     },
     setSearchWord: (state, action) => {
       state.searchWord = action.payload;

@@ -2,11 +2,11 @@ import FilterSelect from "../components/FilterSelect";
 import ShopList from "../components/ShopList";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import styled from "styled-components";
-import CustomBreadcrumbs from "../components/CustomBreadCrumbs/CustomBreadCrumbs";
+import {CustomBreadcrumbs} from "../components/CustomBreadCrumbs";
 import {PriceRangeSlider} from "../components/PriceRangeSlider";
 import { useSelector } from "react-redux";
 import { Helmet } from "../components";
-import ColorFilter from "../components/ColorFilter";
+import {ColorFilter} from "../components/ColorFilter";
 
 const MainWrapper = styled.div`
   position: relative;
@@ -32,14 +32,14 @@ const MainWrapper = styled.div`
       background-color: #f6f9fc;
     }
     .card-width {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
     }
   }
 `;
 
 const Shop = () => {
-  const filteredProducts = useSelector((state) => state.products.filteredProducts);
-
+  const {filteredProducts,products} = useSelector((state) => state.products);
+  const isFiltered = filteredProducts && filteredProducts.length > 0;
   useWindowScrollToTop();
 
   return (
@@ -56,10 +56,10 @@ const Shop = () => {
             </aside>
             <div
               className={`productsWrapper ${
-                filteredProducts.length < 4 ? "card-width" : "null"
+                filteredProducts.length > 3 ? "null" : "card-width"
               }`}
             >
-              <ShopList productItems={filteredProducts} />
+              <ShopList productItems={isFiltered ? filteredProducts:products} />
             </div>
           </div>
         </MainWrapper>

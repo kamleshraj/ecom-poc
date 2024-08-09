@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {CustomNavbar} from "./components/Navbar";
@@ -7,7 +7,9 @@ import {Loader} from "./components/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRouter from "./routers/ProtectedRoute";
-
+import { products } from "./utils/products";
+import { useDispatch } from "react-redux";
+import { setProducts } from "./app/features/products/productSlice";
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -19,6 +21,10 @@ const CheckOut = lazy(() => import("./pages/CheckOut"));
 const Favorite = lazy(() => import("./pages/Favorite"));
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(setProducts(products))
+  },[dispatch])
   return (
     <Suspense fallback={<Loader />}>
       <Router>

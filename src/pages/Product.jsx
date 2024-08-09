@@ -6,7 +6,7 @@ import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import Section from "../components/Section";
 import { Helmet } from "../components";
 import { useSelector } from "react-redux";
-import CustomBreadcrumbs from "../components/CustomBreadCrumbs/CustomBreadCrumbs";
+import {CustomBreadcrumbs} from "../components/CustomBreadCrumbs";
 
 
 

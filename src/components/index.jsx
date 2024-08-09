@@ -8,3 +8,5 @@ export {ProductReviews} from './ProductReviews/index'
 export {SearchBar} from './SearchBar/index';
 export {CustomModal} from './CustomModal/index';
 export {PriceRangeSlider} from './PriceRangeSlider';
+export {CustomBreadcrumbs} from './CustomBreadCrumbs/index';
+export {ColorFilter} from './ColorFilter/index'

@@ -622,6 +622,7 @@ export const products = [
     category: "wireless",
     price: 899,
     prevPrice:300,
+    color:'Black',
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -644,6 +645,7 @@ export const products = [
     productName: "Beat EP Headphones",
     imgUrl: wireless03,
     category: "wireless",
+    color:'Blue',
     price: 199,
     prevPrice:300,
     shortDesc:
@@ -668,6 +670,7 @@ export const products = [
     imgUrl: wireless02,
     category: "wireless",
     price: 169,
+    color:'Red',
     prevPrice:200,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
@@ -690,6 +693,7 @@ export const products = [
     productName: "Bluetooth Headphones",
     imgUrl: wireless04,
     category: "wireless",
+    color:'White',
     price: 139,
     prevPrice:200,
     shortDesc:

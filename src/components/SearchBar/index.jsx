@@ -60,7 +60,6 @@ export const SearchBar = () => {
   const { products } = useSelector((state) => state.products);
   const [suggestions, setSuggestions] = useState([]);
   const categories = [...new Set(products.map((product) => product.category))];
-  console.log(categories);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const debounceSearchWord = useDebounce(searchWord, 300);

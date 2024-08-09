@@ -1,0 +1,39 @@
+.colorFilterSidebar{
+    margin-top: 20px;
+    .colorItem {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      
+        input {
+          z-index: 11;
+          opacity: 0;
+          position: absolute;
+          &:checked + .colorsBox::before {
+            transform: scale(1.01);
+          }
+        }
+      
+        .colorsBox {
+          width: 20px;
+          height: 20px;
+          display: block;
+          border-radius: 3px;
+          border: 1px solid #e9e9e9a4;
+          position: relative;
+          cursor: pointer;
+          &::before {
+            content: "✓";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 2px;
+            top: -4px;
+            margin: 0 auto;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 120ms transform ease-in-out;
+            cursor: pointer;
+          }
+        }
+      }
+}
