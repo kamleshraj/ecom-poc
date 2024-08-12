@@ -2,6 +2,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../app/features/cart/cartSlice";
+import { SlHeart} from "react-icons/sl";
 import { SlBasket} from "react-icons/sl";
 import "./productDetails-module.scss";
 
@@ -52,12 +53,12 @@ export const ProductDetails = ({ selectedProduct }) => {
               <Button
                 aria-label="Add"
                 type="submit"
-                variant="btn btn-warning d-flex align-items-center gap-1"
+                variant="btn btn-warning btn-cart d-flex align-items-center gap-1"
                 onClick={() => handelAdd(selectedProduct)}
               >
               <SlBasket/>  Add To Cart
               </Button>
-              <Button variant="outline-secondary">Secondary</Button>
+              <Button variant="outline-secondary btn-wishlist"><SlHeart/> Wishlist</Button>
             </div>
           </Col>
         </Row>
