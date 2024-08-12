@@ -5,9 +5,9 @@ import styles from './ColorSidebar.module.scss'
 
 export const ColorFilter = () => {
   const dispatch = useDispatch();
-  const selectedColors = useSelector((state) => state.products.selectedColors);
+  const {selectedColors,products} = useSelector((state) => state.products);
   const colors = ["Red", "Blue", "Green", "Yellow", "Black", "White"];
-
+  
   const handleCheckboxChange = (color) => {
     let updatedColors;
     if (selectedColors.includes(color)) {
@@ -18,9 +18,13 @@ export const ColorFilter = () => {
     dispatch(setSelectedColors(updatedColors));
   };
 
+  const getColorCount = (color) => {
+    return products.filter((product) => product.color === color).length;
+  };
+
   return (
     <div className={styles.colorFilterSidebar}>
-      <h6>Color</h6>
+      <h6>Select Color:</h6>
       {colors.map((color) => (
         <div className={styles.colorItem} key={color}>
           <input
@@ -30,6 +34,9 @@ export const ColorFilter = () => {
             checked={selectedColors.includes(color)}
           />
           <div className={styles.colorsBox} style={{ backgroundColor: `${color}` }} />
+          <div>
+             {color} ({getColorCount(color)})
+          </div>
         </div>
       ))}
     </div>

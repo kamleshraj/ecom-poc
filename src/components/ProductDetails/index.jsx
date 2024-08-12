@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../app/features/cart/cartSlice";
@@ -32,7 +32,7 @@ export const ProductDetails = ({ selectedProduct }) => {
                 </div>
                 <h4>{selectedProduct?.productName}</h4>
               </li>
-              <li className="rate">
+              <li className="rate d-flex align-items-center">
                 <div className="stars">
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
@@ -40,24 +40,24 @@ export const ProductDetails = ({ selectedProduct }) => {
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
                 </div>
-                <span>{selectedProduct?.avgRating} ratings</span>
+                <span>{selectedProduct?.avgRating} Ratings</span>
               </li>
               <li className="d-flex align-items-center gap-3">
-               {<del className="text-secondary">{selectedProduct.prevPrice}</del>}
+               {<del className="text-secondary">${selectedProduct.prevPrice}</del>}
                {<h2>${selectedProduct?.price}</h2>}
               </li>
               <li>{selectedProduct?.description}</li>
             </ul>
             <div className="btn-lists">
-              <button
+              <Button
                 aria-label="Add"
                 type="submit"
-                className="btn btn-warning d-flex align-items-center gap-1"
+                variant="btn btn-warning d-flex align-items-center gap-1"
                 onClick={() => handelAdd(selectedProduct)}
               >
               <SlBasket/>  Add To Cart
-              </button>
-              <button className="btn btn-danger">Buy Now</button>
+              </Button>
+              <Button variant="outline-secondary">Secondary</Button>
             </div>
           </Col>
         </Row>
