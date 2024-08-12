@@ -5,8 +5,9 @@ const CheckOut = ()=>{
     return(
         <>
         <Helmet title="Checkout">
+            <section className="py-5" style={{backgroundColor:'#f6f9fc'}}>
             <Container>
-                <Card className="my-5 w-75 m-auto">
+                <Card className=" w-75 m-auto">
                     <CardBody>
                 <Form>
                     <Row className="g-3 mb-3">
@@ -46,6 +47,7 @@ const CheckOut = ()=>{
                 </CardBody>
                 </Card>
             </Container>
+            </section>
         </Helmet>
         </>
     )

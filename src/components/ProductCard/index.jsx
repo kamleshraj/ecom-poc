@@ -71,6 +71,7 @@ export const ProductCard = ({ productItem, title }) => {
       <img
         loading="lazy"
         onClick={() => handelClick()}
+        className="img-fluid"
         src={productItem.imgUrl}
         alt={productItem.title}
       />
@@ -134,6 +135,7 @@ export const ProductCard = ({ productItem, title }) => {
             <h4>${productItem.price}</h4>
           )}
         </div>
+        
       </div>
     </div>
   );

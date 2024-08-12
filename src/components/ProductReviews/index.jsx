@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Nav } from "react-bootstrap";
 import "./product-review.scss";
 
 export const ProductReviews = ({ selectedProduct }) => {
@@ -7,33 +7,39 @@ export const ProductReviews = ({ selectedProduct }) => {
   return (
     <section className="product-reviews">
       <Container>
-        <ul>
-          <li
-            style={{ color: listSelected === "desc" ? "black" : "#9c9b9b" }}
+        <Nav variant="tabs" defaultActiveKey="/home">
+        <Nav.Item>
+          <Nav.Link className={listSelected === "desc" ? "active":'text-secondary'}
             onClick={() => setListSelected("desc")}
           >
-            Description
-          </li>
-          <li
-            style={{ color: listSelected === "rev" ? "black" : "#9c9b9b" }}
+            Description 
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+          <Nav.Link className={listSelected === "rev" ? "active":'text-secondary'}
             onClick={() => setListSelected("rev")}
           >
-            Reviews ({selectedProduct?.reviews.length})
-          </li>
-        </ul>
-        {listSelected === "desc" ? (
-          <p>{selectedProduct?.description}</p>
+            Reviews 
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+        <div className="card border-top-0 rounded-0 mb-5">
+          <div className="card-body">
+          {listSelected === "desc" ? (
+          <p className="text-secondary">{selectedProduct?.description}</p>
         ) : (
-          <div className="rates">
+          <ul className="rates ps-0">
             {selectedProduct?.reviews.map((rate) => (
-              <div className="rate-comment" key={rate.rating}>
-                <span>Jhon Doe</span>
-                <span>{rate.rating} (rating)</span>
-                <p>{rate.text}</p>
-              </div>
+              <li className="rate-comment" key={rate.rating}>
+                <h6 className="mb-0">Jhon Doe</h6>
+                <span>{rate.rating} (Rating)</span>
+                <p className="text-secondary">{rate.text}</p>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
+          </div>
+        </div>
       </Container>
     </section>
   );
