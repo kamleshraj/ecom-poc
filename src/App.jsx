@@ -8,8 +8,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRouter from "./routers/ProtectedRoute";
 import { products } from "./utils/products";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "./app/features/products/productSlice";
+import CompareModal from "./components/compareModal";
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -22,6 +23,7 @@ const Favorite = lazy(() => import("./pages/Favorite"));
 
 function App() {
   const dispatch = useDispatch()
+  const {compareList} = useSelector((state)=>state.compare)
   useEffect(()=>{
     dispatch(setProducts(products))
   },[dispatch])
@@ -40,6 +42,7 @@ function App() {
           theme="light"
         />
         <CustomNavbar/>
+        {compareList.length >0 &&<CompareModal/>}
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/shop" element={<Shop />} />

@@ -9,11 +9,14 @@ import {
   HiMiniShoppingCart,
   HiOutlineShoppingCart,
   HiOutlineEye,
+  HiArrowsRightLeft 
 } from "react-icons/hi2";
 import "./productCard.scss";
 import useAuth from "../../hooks/useAuth";
 import { CustomModal } from "../CustomModal";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
+import { addToCompare } from "../../app/features/compare/compareSlice";
 
 export const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
@@ -22,6 +25,7 @@ export const ProductCard = ({ productItem, title }) => {
   const { favoriteList } = useSelector((state) => state.favorite);
   const { currentUser } = useAuth();
 
+  
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -57,6 +61,9 @@ export const ProductCard = ({ productItem, title }) => {
       handleShowModal();
     }
   };
+  const addToCampareHandler=(productItem)=>{
+    dispatch(addToCompare({ product: productItem, num: 1 }));
+  }
   return (
     <div className="product-wrapper">
       <CustomModal
@@ -135,8 +142,8 @@ export const ProductCard = ({ productItem, title }) => {
             <h4>${productItem.price}</h4>
           )}
         </div>
-        
+        <Button variant="outline-secondary" onClick={()=>addToCampareHandler(productItem)}><HiArrowsRightLeft  /> Compare</Button>
       </div>
     </div>
-  );
+  ); 
 };
