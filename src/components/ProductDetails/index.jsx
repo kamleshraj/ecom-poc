@@ -2,14 +2,13 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../app/features/cart/cartSlice";
-import { SlHeart} from "react-icons/sl";
-import { SlBasket} from "react-icons/sl";
+import { SlHeart,SlBasket} from "react-icons/sl";
 import "./productDetails-module.scss";
 
 export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
-  const handelAdd = (selectedProduct) => {
-    dispatch(addToCart({ product: selectedProduct }));
+  const addCartHandler = (productItem) => {
+    dispatch(addToCart({ product: productItem, num: 1 }));
     toast.success("Product has been added to cart!");
   };
 
@@ -54,7 +53,7 @@ export const ProductDetails = ({ selectedProduct }) => {
                 aria-label="Add"
                 type="submit"
                 variant="btn btn-warning btn-cart d-flex align-items-center gap-1"
-                onClick={() => handelAdd(selectedProduct)}
+                onClick={() => addCartHandler(selectedProduct)}
               >
               <SlBasket/>  Add To Cart
               </Button>
