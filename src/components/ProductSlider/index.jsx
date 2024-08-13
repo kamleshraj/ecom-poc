@@ -7,7 +7,7 @@ export const ProductSlider = ({ title, SliderData }) => {
   const settings = {
     nav: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
   };

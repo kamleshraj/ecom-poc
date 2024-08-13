@@ -4,7 +4,10 @@ import { SlMagnifier } from "react-icons/sl";
 import { useDispatch, useSelector } from "react-redux";
 // import useDebounce from "../../hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
-import { setSelectedCategory } from "../../app/features/products/productSlice";
+import {
+  setProducts,
+  setSelectedCategory,
+} from "../../app/features/products/productSlice";
 
 const SearchContainer = styled.div`
   position: relative;
@@ -49,32 +52,21 @@ const SuggestionsList = styled.ul`
     &:hover {
       background-color: #f2f2f2;
     }
-    &:last-child(){
+    &:last-child() {
       border-bottom: transparent;
     }
   }
 `;
 
 export const SearchBar = () => {
-  const [searchText, setSearchText] = useState('');
-  const { products } = useSelector((state) => state.products);
+  const [searchText, setSearchText] = useState("");
+  const { products} = useSelector((state) => state.products);
   const [suggestions, setSuggestions] = useState([]);
   const categories = [...new Set(products.map((product) => product.category))];
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const debounceSearchWord = useDebounce(searchWord, 300);
-
-  // useEffect(() => {
-  //   if (searchWord === null) {
-  //     setFilterList(products);
-  //   } else {
-  //     setFilterList(
-  //       products.filter((item) =>
-  //         item.productName?.toLowerCase().includes(searchWord.toLowerCase())
-  //       )
-  //     );
-  //   }
-  // }, [searchWord, setFilterList, products]);
 
   const handleSelect = (category) => {
     if (typeof category !== "string" || category.trim() === "") return;
@@ -93,13 +85,14 @@ export const SearchBar = () => {
         .filter((category) =>
           category.toLowerCase().includes(value.toLowerCase())
         )
-        .map((category) =>
-          category.charAt(0).toUpperCase() + category.slice(1)
+        .map(
+          (category) => category.charAt(0).toUpperCase() + category.slice(1)
         );
       setSuggestions(filteredSuggestions);
     } else {
       setSuggestions([]);
       setSelectedCategory(products);
+      dispatch(setProducts(products))
     }
   };
   return (

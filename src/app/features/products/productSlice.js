@@ -25,7 +25,7 @@ const productsSlice = createSlice({
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
-      //state.filteredProducts = action.payload;
+      state.filteredProducts = action.payload
     },
     setSearchWord: (state, action) => {
       state.searchWord = action.payload;
