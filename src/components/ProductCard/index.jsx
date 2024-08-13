@@ -142,7 +142,7 @@ export const ProductCard = ({ productItem, title }) => {
             <h4>${productItem.price}</h4>
           )}
         </div>
-        <Button variant="outline-secondary" onClick={()=>addToCampareHandler(productItem)}><HiArrowsRightLeft  /> Compare</Button>
+        <Button variant="outline-secondary btn-compare" onClick={()=>addToCampareHandler(productItem)}><HiArrowsRightLeft  /> Compare</Button>
       </div>
     </div>
   ); 
