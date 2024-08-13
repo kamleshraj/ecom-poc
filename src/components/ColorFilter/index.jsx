@@ -5,7 +5,7 @@ import styles from './ColorSidebar.module.scss'
 
 export const ColorFilter = () => {
   const dispatch = useDispatch();
-  const {selectedColors,products} = useSelector((state) => state.products);
+  const {selectedColors,products,filteredProducts} = useSelector((state) => state.products);
   const colors = ["Red", "Blue", "Green", "Yellow", "Black", "White"];
   
   const handleCheckboxChange = (color) => {
@@ -18,8 +18,9 @@ export const ColorFilter = () => {
     dispatch(setSelectedColors(updatedColors));
   };
 
-  const getColorCount = (color) => {
-    return products.filter((product) => product.color === color).length;
+  const getColorCount = (color, filteredProducts = null, products) => {
+    const productList = filteredProducts.length > 0 ? filteredProducts : products;
+    return productList.filter((product) => product.color === color).length;
   };
 
   return (
@@ -34,8 +35,8 @@ export const ColorFilter = () => {
             checked={selectedColors.includes(color)}
           />
           <div className={styles.colorsBox} style={{ backgroundColor: `${color}` }} />
-          <div>
-             {color} ({getColorCount(color)})
+          <div className="color-item">
+             {color} ({getColorCount(color,filteredProducts,products)})
           </div>
         </div>
       ))}
