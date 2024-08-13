@@ -18,7 +18,6 @@ const CompareProduct = () => {
                 <Table bordered>
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>Product Name</th>
                     <th>Category</th>
                     <th>Color</th>
@@ -33,7 +32,6 @@ const CompareProduct = () => {
                   {compareList.map((product) => {
                     return (
                       <tr key={product.id}>
-                        <td>{product.id}</td>
                         <td>{product.productName}</td>
                         <td>{product.category}</td>
                         <td>{product.color}</td>
