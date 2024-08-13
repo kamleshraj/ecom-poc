@@ -5,6 +5,7 @@ const storedCompareList = localStorage.getItem('compareList')
 
 const initialState = {
   compareList: storedCompareList,
+  isOpenModal:false,
 };
 
 export const compareSlice = createSlice({
@@ -14,6 +15,12 @@ export const compareSlice = createSlice({
     addToCompare: (state, action) => {
       const productToCompare = action.payload.product;
       const quantity = action.payload.num;
+
+      // Check if the compareList already has 6 items
+      if (state.compareList.length >= 6) {
+        alert("You can only compare up to 6 items.");
+        return;
+      }
       const productExit = state.compareList.find(
         (item) => item.id === productToCompare.id
       );
@@ -21,11 +28,11 @@ export const compareSlice = createSlice({
         state.compareList = state.compareList.map((item) =>
           item.id === action.payload.product.id
             ? { ...productExit, qty: productExit.qty + action.payload.num }
-            : item
-        );
+            : item);
       } else {
         state.productExit=false;
         state.compareList.push({ ...productToCompare, qty: quantity });
+        state.isOpenModal=true
       }
     },
     deleteProduct: (state, action) => {
@@ -34,6 +41,12 @@ export const compareSlice = createSlice({
         (item) => item.id !== productToDelete.id
       );
     },
+    setOpenModal:(state, action)=>{
+      state.isOpenModal = action.payload
+    },
+    resetModal:(state,action)=>{
+      state.compareList=action.payload
+    }
   },
 });
 
@@ -46,5 +59,5 @@ export const compareMiddleware = (store) => (next) => (action) => {
     return result;
 };
 
-export const { addToCompare, deleteProduct } = compareSlice.actions;
+export const { addToCompare, deleteProduct,setOpenModal,resetModal} = compareSlice.actions;
 export default compareSlice.reducer;

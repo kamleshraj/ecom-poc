@@ -8,9 +8,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRouter from "./routers/ProtectedRoute";
 import { products } from "./utils/products";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProducts } from "./app/features/products/productSlice";
-import CompareModal from "./components/compareModal";
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -20,10 +19,11 @@ const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 const CheckOut = lazy(() => import("./pages/CheckOut"));
 const Favorite = lazy(() => import("./pages/Favorite"));
+const CompareProduct = lazy(() => import("./pages/CompareProduct"));
 
 function App() {
   const dispatch = useDispatch()
-  const {compareList} = useSelector((state)=>state.compare)
+
   useEffect(()=>{
     dispatch(setProducts(products))
   },[dispatch])
@@ -42,7 +42,7 @@ function App() {
           theme="light"
         />
         <CustomNavbar/>
-        {compareList.length >0 &&<CompareModal/>}
+        
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/shop" element={<Shop />} />
@@ -59,6 +59,7 @@ function App() {
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/compare-product" element={<CompareProduct/>}/>
         </Routes>
         <Footer />
       </Router>

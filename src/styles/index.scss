@@ -101,15 +101,16 @@ body {
     background: white;
     border-radius: 6px;
     .product-item-image {
-      max-height: 120px;
+      max-height: 150px;
+      margin: 5px;
   }
-    .cart-item-details{
+  .cart-item-details{
       padding-top: 15px;
       .cart-item-list{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 15px 15px 0;
+      padding: 15px 50px 15px 0;
     .cartControl {
       display: flex;
       gap: 20px;
@@ -131,8 +132,8 @@ body {
   }
     button.delete {
       position: absolute;
-      right: 0;
-      top: 20px;
+      right: 10px;
+      top: 10px;
       width: max-content;
       border: none;
       outline: none;
@@ -143,20 +144,11 @@ body {
       }
     }
   }
-
-  
-
   .no-items {
     color: #0f3460;
     font-size: 18px;
     margin-top: 30px;
     height: 130px;
-  }
-}
-
-@media (max-width: 767px) {
-  .cart-items .container > .row {
-    flex-wrap: wrap-reverse !important;
   }
 }
 

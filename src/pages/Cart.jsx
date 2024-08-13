@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { Helmet } from "../components";
 import { SlBasket} from "react-icons/sl";
+import { HiXMark } from "react-icons/hi2";
 const Cart = () => {
   const { cartList } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Cart = () => {
                       className="delete"
                       onClick={() => dispatch(deleteProduct(item))}
                     >
-                      <ion-icon name="close"></ion-icon>
+                      <HiXMark/>
                     </button>
                   </Row>
                 </div>

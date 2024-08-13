@@ -16,16 +16,16 @@ import useAuth from "../../hooks/useAuth";
 import { CustomModal } from "../CustomModal";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { addToCompare } from "../../app/features/compare/compareSlice";
+import { addToCompare, setOpenModal } from "../../app/features/compare/compareSlice";
 
 export const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { cartList } = useSelector((state) => state.cart);
   const { favoriteList } = useSelector((state) => state.favorite);
+  const {compareList} = useSelector((state)=>state.compare)
   const { currentUser } = useAuth();
 
-  
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -33,7 +33,6 @@ export const ProductCard = ({ productItem, title }) => {
   const favoriteProductExit = favoriteList.find(
     (item) => item.id === productItem.id
   );
-
   const cartProductExit = cartList.find((item) => item.id === productItem.id);
 
   const handelClick = () => {
@@ -63,6 +62,9 @@ export const ProductCard = ({ productItem, title }) => {
   };
   const addToCampareHandler=(productItem)=>{
     dispatch(addToCompare({ product: productItem, num: 1 }));
+    if (compareList.length > 0) {
+      dispatch(setOpenModal(true))
+    }
   }
   return (
     <div className="product-wrapper">

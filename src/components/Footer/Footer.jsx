@@ -1,22 +1,39 @@
-import React from "react"
-import "./style.scss"
-import { Col, Container, Row } from "react-bootstrap"
+import React, { useEffect } from "react";
+import "./style.scss";
+import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import CompareModal from "../compareModal";
+import { setOpenModal } from "../../app/features/compare/compareSlice";
 
 const Footer = () => {
+  const { compareList, isOpenModal } = useSelector((state) => state.compare);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (compareList.length > 0) {
+      dispatch(setOpenModal(true));
+    }
+  }, [compareList, dispatch]);
   return (
-    <footer>
+    <>
+      {isOpenModal && <CompareModal />}
+      <footer>
         <Container fluid>
           <Row className="footer-row">
-            <Col md={3} sm={5} className='box'>
+            <Col md={3} sm={5} className="box">
               <div className="logo">
-                  <ion-icon name="bag"></ion-icon>
-                  <h1>Multi Shop
+                <ion-icon name="bag"></ion-icon>
+                <h1>
+                  Multi Shop
                   <div className="logo-caption">Big Mega Store</div>
-                  </h1>
+                </h1>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor libero id et, in gravida. Sit diam duis mauris nulla cursus. Erat et lectus vel ut sollicitudin elit at amet.</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
+                libero id et, in gravida. Sit diam duis mauris nulla cursus.
+                Erat et lectus vel ut sollicitudin elit at amet.
+              </p>
             </Col>
-            <Col md={3} sm={5} className='box'>
+            <Col md={3} sm={5} className="box">
               <h2>About Us</h2>
               <ul>
                 <li>Careers</li>
@@ -26,7 +43,7 @@ const Footer = () => {
                 <li>Privacy Policy</li>
               </ul>
             </Col>
-            <Col md={3} sm={5} className='box'>
+            <Col md={3} sm={5} className="box">
               <h2>Customer Care</h2>
               <ul>
                 <li>Help Center </li>
@@ -36,7 +53,7 @@ const Footer = () => {
                 <li>Returns & Refunds </li>
               </ul>
             </Col>
-            <Col md={3} sm={5} className='box'>
+            <Col md={3} sm={5} className="box">
               <h2>Contact Us</h2>
               <ul>
                 <li>Symphony IT Park, Pune, Maharashtra 411024, IN</li>
@@ -46,8 +63,9 @@ const Footer = () => {
             </Col>
           </Row>
         </Container>
-    </footer>
-  )
-}
+      </footer>
+    </>
+  );
+};
 
-export default Footer
+export default Footer;
