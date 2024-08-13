@@ -39,7 +39,7 @@ const CompareProduct = () => {
                         <td>${product.price}</td>
                         <td>${product.discount}</td>
                         <td>{product.reviews.map((item)=>item.text)}</td>
-                        <td>{product.reviews.map((item)=>item.rating)}</td>
+                        <td><i className="fa fa-star" style={{color:'#ffcf67'}}/> {product.avgRating}</td>
                       </tr>
                     );
                   })}

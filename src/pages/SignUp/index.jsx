@@ -25,7 +25,6 @@ import {
 // import { async } from '@firebase/util'
 
 const SignUp = () => {
-  const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,7 +45,7 @@ const SignUp = () => {
       const user = await userCredential.user;
 
       const storageRef = ref(storage, `images/${Date.now() + username}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
+      const uploadTask = uploadBytesResumable(storageRef);
 
       uploadTask.on(
         (error) => {
@@ -131,14 +130,6 @@ const SignUp = () => {
                           onChange={(e) => setPassword(e.target.value)}
                         />
                       </FloatingLabel>
-                      <Form.Group controlId="formFile" className="mb-3">
-                        <Form.Control
-                          type="file"
-                          id="profile"
-                          name="profile"
-                          onChange={(e) => setFile(e.target.files[0])}
-                        />
-                      </Form.Group>
                       <div className="d-flex justify-content-center py-4">
                         <Button type="submit" variant="primary w-50">
                           Create an Account
