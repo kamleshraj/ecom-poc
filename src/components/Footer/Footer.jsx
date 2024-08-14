@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import "./style.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import CompareModal from "../compareModal";
 import { setOpenModal } from "../../app/features/compare/compareSlice";
+import styles from './FooterStyle.module.scss'
+import { SlHandbag} from "react-icons/sl";
 
 const Footer = () => {
   const { compareList, isOpenModal } = useSelector((state) => state.compare);
@@ -11,20 +12,22 @@ const Footer = () => {
   useEffect(() => {
     if (compareList.length > 0) {
       dispatch(setOpenModal(true));
+    }else{
+      dispatch(setOpenModal(false));
     }
   }, [compareList, dispatch]);
   return (
     <>
       {isOpenModal && <CompareModal />}
-      <footer>
+      <footer className={styles.footer}>
         <Container fluid>
           <Row className="footer-row">
             <Col md={3} sm={5} className="box">
-              <div className="logo">
-                <ion-icon name="bag"></ion-icon>
-                <h1>
+              <div className={styles.logo}>
+                <SlHandbag/>
+                <h1 className={styles.logo.h1}>
                   Multi Shop
-                  <div className="logo-caption">Big Mega Store</div>
+                  <div className={styles.logoCaption}>Big Mega Store</div>
                 </h1>
               </div>
               <p>

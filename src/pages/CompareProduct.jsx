@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 
 const CompareProduct = () => {
   const { compareList } = useSelector((state) => state.compare);
-  console.log(compareList);
 
   return (
     <>
       <Helmet title="Compare Product">
-        <section className="cart-items pt-3">
+      <section className="cart-items pt-3">
           <Container fluid>
             <div className="compareProductWrapper text-center">
               <h4 className="title">Compare Product List</h4>
@@ -31,14 +30,14 @@ const CompareProduct = () => {
                 <tbody>
                   {compareList.map((product) => {
                     return (
-                      <tr key={product.id}>
+                      <tr key={`${product.id}`}>
                         <td>{product.productName}</td>
                         <td>{product.category}</td>
                         <td>{product.color}</td>
                         <td><img src={product.imgUrl} alt={product.productName} className="img-fluid" width={50}/></td>
                         <td>${product.price}</td>
                         <td>${product.discount}</td>
-                        <td>{product.reviews.map((item)=>item.text)}</td>
+                        <td>{product.reviews.map((item,index)=><p key={index}>{item.text}</p>)}</td>
                         <td><i className="fa fa-star" style={{color:'#ffcf67'}}/> {product.avgRating}</td>
                       </tr>
                     );

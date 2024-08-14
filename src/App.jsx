@@ -7,7 +7,7 @@ import {Loader} from "./components/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRouter from "./routers/ProtectedRoute";
-import { products } from "./utils/products";
+import { products } from "./db/data.js";
 import { useDispatch } from "react-redux";
 import { setProducts } from "./app/features/products/productSlice";
 

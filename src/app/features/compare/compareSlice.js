@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const storedCompareList = localStorage.getItem('compareList')
   ? JSON.parse(localStorage.getItem('compareList')) : [];
@@ -15,11 +16,19 @@ export const compareSlice = createSlice({
     addToCompare: (state, action) => {
       const productToCompare = action.payload.product;
       const quantity = action.payload.num;
-
+      
       // Check if the compareList already has 6 items
       if (state.compareList.length >= 6) {
-        alert("You can only compare up to 6 items.");
+        toast.error("You can only compare up to 6 items.");
         return;
+      }
+      
+      if(state.compareList.length >0){
+        const firstProductCategory = state.compareList[0].category;
+        if (firstProductCategory !== productToCompare.category) {
+          toast.error('Compare only same category product');
+          return;
+        }
       }
       const productExit = state.compareList.find(
         (item) => item.id === productToCompare.id

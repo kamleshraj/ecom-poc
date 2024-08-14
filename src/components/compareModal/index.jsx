@@ -8,6 +8,7 @@ import {
   resetModal,
 } from "../../app/features/compare/compareSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CompareModal = () => {
   const { compareList } = useSelector((state) => state.compare);
@@ -21,8 +22,13 @@ const CompareModal = () => {
     dispatch(setOpenModal(false));
   };
   const compareProductHandler = () => {
-    navigate("/compare-product");
-    dispatch(setOpenModal(false));
+    if(compareList.length > 1){
+      navigate("/compare-product");
+      dispatch(setOpenModal(false));
+    }else{
+      toast.warning('Please select at least 2 products to compare')
+      return
+    }
   };
   return (
     <div className={`fixed-bottom ${styles.compareModalWrapper}`}>

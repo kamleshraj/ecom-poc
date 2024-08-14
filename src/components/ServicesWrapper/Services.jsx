@@ -1,5 +1,5 @@
 import React from "react"
-import { serviceData } from "../../utils/products"
+import { serviceData } from "../../db/data"
 import styled from "styled-components"
 
 const ServiceWrapper= styled.section`
