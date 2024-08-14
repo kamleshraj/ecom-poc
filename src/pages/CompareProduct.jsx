@@ -10,12 +10,13 @@ const CompareProduct = () => {
       <Helmet title="Compare Product">
       <section className="cart-items pt-3">
           <Container fluid>
-            <div className="compareProductWrapper text-center">
-              <h4 className="title">Compare Product List</h4>
+            <div className="compareProductWrapper pb-4">
+              <h4 className="title py-4">Compare Product List</h4>
               <Card className="border-0">
                 <CardBody>
-                <Table bordered>
-                <thead>
+                <div class="table-responsive">
+                <Table className="bordered align-middle mb-0">
+                <thead class="table-dark">
                   <tr>
                     <th>Product Name</th>
                     <th>Category</th>
@@ -44,6 +45,7 @@ const CompareProduct = () => {
                   })}
                 </tbody>
               </Table>
+              </div>
                 </CardBody>
               </Card>
             </div>
