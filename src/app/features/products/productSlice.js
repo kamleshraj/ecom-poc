@@ -6,6 +6,7 @@ const initialState = {
   searchWord: '',
   selectedCategory: 'All',
   selectedColors: [],
+  isLoading:true
 };
 
 const filterProducts = (products, category, color = [], searchTerm = '', price = 0) => {
@@ -42,8 +43,11 @@ const productsSlice = createSlice({
     setProductPriceRange: (state, action) => {
         state.filteredProducts = filterProducts(state.products, state.selectedCategory, state.selectedColors, state.searchWord, action.payload)
     },
+    setLoading:(state,action)=>{
+      state.isLoading = action.payload
+    }
   },
 });
 
-export const { setProducts, setSearchWord, setSelectedCategory, setSelectedColors,setProductPriceRange } = productsSlice.actions;
+export const { setProducts, setSearchWord, setSelectedCategory, setSelectedColors,setProductPriceRange,setLoading} = productsSlice.actions;
 export default productsSlice.reducer;

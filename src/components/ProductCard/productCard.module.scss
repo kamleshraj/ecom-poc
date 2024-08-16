@@ -1,6 +1,5 @@
 @import '../../styles/settings/colors'; 
-
-.product-wrapper{
+.productWrapper {
   background-color: #fff;
   padding: 15px;
   text-align: center;
@@ -12,58 +11,71 @@
   cursor: pointer;
   margin: 0 5px;
   overflow: hidden;
+
   .discount {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: $primary-color;
-  padding: 3px 10px;
-  font-size: 0.7rem;
-  border-radius: 50px;
-  color: #fff;
-  margin:10px 0 0 10px;
-  z-index: 11;
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $primary-color;
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    border-radius: 50px;
+    color: #fff;
+    margin: 10px 0 0 10px;
+    z-index: 11;
+  }
+
   img {
     width: 100%;
     object-fit: cover;
     max-height: 150px;
-    transition: all .5s ease-in-out;
-    &:hover{transform:scale(1.2)}
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-  .product-details {
+
+  .productDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    .product-title {
+
+    .productTitle {
       font-size: 1rem;
       padding-top: 1rem;
       font-weight: 500;
     }
-    .rating-review-count {
+
+    .ratingReviewCount {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 5px;
-      .rating-count {
+
+      .ratingCount {
         font-size: 0.8rem;
       }
+
       .rate {
         color: #ffcf67;
       }
     }
-    .price{
-      align-self: self-start;
+
+    .price {
+      align-self: flex-start;
       padding-top: 5px;
     }
-    .btn-compare{
+
+    .btnCompare {
       position: absolute;
       bottom: 15px;
     }
   }
-  .product-icon {
+
+  .productIcon {
     position: absolute;
     top: 0;
     right: 0;
@@ -72,32 +84,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+
     button {
       background: none;
       border: none;
       cursor: pointer;
       padding: 0;
       font-size: 1.5rem;
-    }
-  }
-  &:hover {
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-    .price{color:$primary-color}
-    .product-icon {
-      opacity: 1;
-      transition: all 0.5s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      button {
-        svg {
-          transition: color 0.3s ease;
-        }
-        &:hover svg {
-          color: $primary-color;
-        }
+
+      svg {
+        transition: color 0.3s ease;
+      }
+
+      &:hover svg {
+        color: $primary-color;
       }
     }
-}
+  }
+
+  &:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+
+    .price {
+      color: $primary-color;
+    }
+
+    .productIcon {
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

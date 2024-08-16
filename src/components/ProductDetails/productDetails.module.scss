@@ -1,7 +1,7 @@
 .productDetailWrapper{
     padding-top: 5px;
-    .product-info{
-        padding-left: 0;
+    .productInfo{
+        padding:30px 0 0 0;
         li{
             padding-bottom: 7px;
         }
@@ -13,7 +13,7 @@
             .stars{color:rgb(255, 174, 76);padding-bottom: 5px;}
         }
     }
-    .btn-lists{
+    .btnLists{
         display: flex;
         gap: 10px;
         button{

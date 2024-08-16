@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Container, Nav } from "react-bootstrap";
-import "./product-review.scss";
+import styles from "./Review.module.scss";
 
 export const ProductReviews = ({ selectedProduct }) => {
   const [listSelected, setListSelected] = useState("desc");
   return (
-    <section className="product-reviews">
+    <section className={styles.productReviews}>
       <Container>
         <Nav variant="tabs" defaultActiveKey="/home">
         <Nav.Item>

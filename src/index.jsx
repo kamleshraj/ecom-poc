@@ -4,12 +4,16 @@ import "./styles/index.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import "react-loading-skeleton/dist/skeleton.css";
 
+import { SkeletonTheme } from "react-loading-skeleton";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <SkeletonTheme baseColor="#e9e9e9" highlightColor="#444">
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </SkeletonTheme>
   </React.StrictMode>
 );

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../app/features/cart/cartSlice";
 import { SlHeart,SlBasket} from "react-icons/sl";
-import "./productDetails-module.scss";
+import styles from "./productDetails.module.scss";
 
 export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
@@ -13,10 +13,10 @@ export const ProductDetails = ({ selectedProduct }) => {
   };
 
   return (
-    <section className="productDetailWrapper">
+    <section className={styles.productDetailWrapper}>
       <Container>
         <Row className="align-items-center justify-content-center">
-          <Col md={6}>
+          <Col md={4}>
             <img
               loading="lazy"
               src={selectedProduct?.imgUrl}
@@ -25,15 +25,15 @@ export const ProductDetails = ({ selectedProduct }) => {
             />
           </Col>
           <Col md={6}>
-            <ul className="product-info">
+            <ul className={styles.productInfo}>
               <li>
                 <div className="text-capitalize">
                   {selectedProduct?.category}
                 </div>
                 <h4>{selectedProduct?.productName}</h4>
               </li>
-              <li className="rate d-flex align-items-center">
-                <div className="stars">
+              <li className={`d-flex align-items-center ${styles.rate}`}>
+                <div className={styles.stars}>
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
@@ -48,7 +48,7 @@ export const ProductDetails = ({ selectedProduct }) => {
               </li>
               <li>{selectedProduct?.description}</li>
             </ul>
-            <div className="btn-lists">
+            <div className={styles.btnLists}>
               <Button
                 aria-label="Add"
                 type="submit"

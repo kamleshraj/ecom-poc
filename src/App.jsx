@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProtectedRouter from "./routers/ProtectedRoute";
 import { products } from "./db/data.js";
 import { useDispatch } from "react-redux";
-import { setProducts } from "./app/features/products/productSlice";
+import { setLoading, setProducts } from "./app/features/products/productSlice";
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -23,10 +23,14 @@ const CompareProduct = lazy(() => import("./pages/CompareProduct"));
 
 function App() {
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setLoading(true));
+    setTimeout(() => {
+      dispatch(setProducts(products));
+      dispatch(setLoading(false));
+    }, 100);
+  }, [dispatch]);
 
-  useEffect(()=>{
-    dispatch(setProducts(products))
-  },[dispatch])
   return (
     <Suspense fallback={<Loader />}>
       <Router>

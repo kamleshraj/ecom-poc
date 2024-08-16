@@ -7,31 +7,33 @@ import {Loader} from '../../components/Loader'
 import {Helmet} from '../../components/Helmet';
 import styles from './Login.module.scss'
 import { Button, Card, CardBody, CardHeader, Col, Container, FloatingLabel, Form, Row } from 'react-bootstrap'
-//import { async } from '@firebase/util'
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
+  const[userLogin,setUserLogin] = useState({
+    email:'',
+    password:''
+  })
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate()
 
   const signIn = async (e) => {
     e.preventDefault()
-    setLoading(true)
+    setLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
-        email,
-        password
+        userLogin.email,
+        userLogin.password
       )
       const user = userCredential.user
       console.log(user);
       
-      setLoading(false)
+      setLoading(false);
       toast.success('Successfully logged in')
       navigate('/')
     } catch (error) {
-      setLoading(false)
+      setLoading(false);
       toast.error(error.message)
     }
   }
@@ -55,8 +57,8 @@ const Login = () => {
                     <Form.Control 
                     type='email'
                     placeholder='Enter your email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={userLogin.email}
+                    onChange={(e) => setUserLogin({ ...userLogin, email: e.target.value })}
                     />
                   </FloatingLabel>
                   <FloatingLabel
@@ -67,8 +69,8 @@ const Login = () => {
                     <Form.Control 
                       type='password'
                       placeholder='Enter your password'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={userLogin.password}
+                      onChange={(e) => setUserLogin({ ...userLogin, password: e.target.value })}
                     />
                   </FloatingLabel>
                   <div className='d-flex justify-content-center my-4'>
@@ -83,8 +85,6 @@ const Login = () => {
                 </Form>
                   </CardBody>
                 </Card>
-
-                
               </Col>
             )}
           </Row>
