@@ -36,14 +36,11 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         userLogin.email,
         userLogin.password
       );
-      const user = userCredential.user;
-      console.log(user);
-
       setLoading(false);
       toast.success("Successfully logged in");
       navigate("/");
@@ -57,8 +54,7 @@ const Login = () => {
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+      await signInWithPopup(auth, provider);
       setLoading(false);
       toast.success("Logged in with Google successfully");
       navigate("/");
