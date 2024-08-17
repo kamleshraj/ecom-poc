@@ -104,7 +104,7 @@ const Cart = () => {
                       Total<h4>${totalPrice}.00</h4>
                     </li>
                     <li>
-                      <Link to="/checkout" className="btn btn-danger fw-600">
+                      <Link to="/checkout" className="btn btn-warning fw-600">
                         Proceed to Buy
                       </Link>
                     </li>
