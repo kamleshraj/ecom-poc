@@ -58,6 +58,9 @@ export const cartSlice = createSlice({
     hideModal:(state)=>{
       state.isOpenModal = false;
       state.message = '';
+    },
+    clearCart:(state,action)=>{
+      state.cartList = action.payload
     }
   },
 });
@@ -71,6 +74,6 @@ export const cartMiddleware = (store) => (next) => (action) => {
   return result;
 };
 
-export const { addToCart, decreaseQty, deleteProduct} = cartSlice.actions;
+export const { addToCart, decreaseQty, deleteProduct, clearCart} = cartSlice.actions;
 
 export default cartSlice.reducer;

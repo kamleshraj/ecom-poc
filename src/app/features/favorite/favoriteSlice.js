@@ -4,7 +4,7 @@ const storedFavoriteList = localStorage.getItem('favoriteList')
   ? JSON.parse(localStorage.getItem('favoriteList')) : [];
 
 const initialState = {
-  favoriteList: storedFavoriteList,
+  favoriteList: storedFavoriteList
 };
 
 export const favoriteSlice = createSlice({
@@ -35,6 +35,9 @@ export const favoriteSlice = createSlice({
         (item) => item.id !== productToDelete.id
       );
     },
+    clearFavorite:(state,action)=>{
+      state.favoriteList = action.payload
+    }
   },
 });
 
@@ -47,6 +50,6 @@ export const favoriteMiddleware = (store) => (next) => (action) => {
     return result;
 };
 
-export const { addToFavorite, decreaseQty, deleteProduct } = favoriteSlice.actions;
+export const { addToFavorite, decreaseQty, deleteProduct,clearFavorite } = favoriteSlice.actions;
 
 export default favoriteSlice.reducer;

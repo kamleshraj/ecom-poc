@@ -62,7 +62,7 @@ function App() {
           />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/login" element={<Login/>}/>
-          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/sign-up" element={<SignUp/>}/>
           <Route path="/compare-product" element={<CompareProduct/>}/>
         </Routes>
         <Footer />

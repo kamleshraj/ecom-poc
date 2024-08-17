@@ -12,13 +12,13 @@ export const CustomModal = ({ show, handleClose, title, description }) => {
           <h4>User Authentication!!!</h4>
           <p>{description}.</p>
         </div>
-        <div className="btn-list d-flex justify-content-center gap-5">
+        <div className="btn-list d-flex justify-content-between gap-5">
+        <Button variant="outline-secondary" onClick={handleClose}>
+          Close
+        </Button>
         <Link className="btn btn-primary w-25" to="/login">
           Login
         </Link>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
         </div>
       </Modal.Body>
     </Modal>

@@ -77,9 +77,13 @@ export const CustomNavbar = () => {
                     </>
                   }
                 >
-                  <Link onClick={Logout} className="navbar-link">
-                    Logout
-                  </Link>
+                  <NavDropdown.Item onClick={Logout} className="navbar-link">
+                  Logout
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item className="navbar-link">
+                    My Profile
+                  </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <Nav.Item>

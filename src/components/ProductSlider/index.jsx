@@ -7,8 +7,6 @@ import Skeleton from "react-loading-skeleton";
 
 export const ProductSlider = ({ title, SliderData }) => {
   const {isLoading} = useSelector((state)=>state.products)
-  console.log(isLoading);
-  
   const settings = {
     nav: false,
     infinite: true,

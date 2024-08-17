@@ -28,7 +28,7 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const signup = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -74,7 +74,7 @@ const SignUp = () => {
                     Sign Up
                   </CardHeader>
                   <CardBody>
-                    <Form className="signUp-form" onSubmit={signup}>
+                    <Form className="signUp-form" onSubmit={submitHandler}>
                       <FloatingLabel
                         controlId="floatingInput"
                         label="UserName"
