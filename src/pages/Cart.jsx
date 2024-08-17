@@ -92,7 +92,7 @@ const Cart = () => {
             {cartList.length !== 0 && (
               <Col md={4}>
                 <div className="cart-total card border-0 shadow-sm">
-                  <h4 className="summary-title">Cart Summary</h4>
+                  <h4 className="summary-title">Order Summary</h4>
                   <ul className="summaryInfo">
                     <li>
                       Subtotal<div>${totalPrice}</div>
