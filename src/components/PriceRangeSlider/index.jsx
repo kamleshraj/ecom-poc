@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setProductPriceRange } from "../../app/features/products/productSlice";
+import { setProductPriceRange } from "../../Redux/products/productSlice";
 import styled from "styled-components";
 
 const FilteredProductByPriceWrapper = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { setSelectedCategory } from '../app/features/products/productSlice';
+import { setSelectedCategory } from '../Redux/products/productSlice';
 
 const FilterSelect = () => {
   const dispatch = useDispatch();

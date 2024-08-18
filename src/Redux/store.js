@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartSlice, { cartMiddleware } from "./features/cart/cartSlice";
-import favoriteSlice, { favoriteMiddleware } from "./features/favorite/favoriteSlice";
-import productSlice from "./features/products/productSlice";
-import compareSlice,{ compareMiddleware } from "./features/compare/compareSlice";
+import cartSlice, { cartMiddleware } from "../Redux/cart/cartSlice";
+import favoriteSlice, { favoriteMiddleware } from "../Redux/favorite/favoriteSlice";
+import productSlice from "../Redux/products/productSlice";
+import compareSlice,{ compareMiddleware } from "../Redux/compare/compareSlice";
 
 export const store = configureStore({
   reducer: {

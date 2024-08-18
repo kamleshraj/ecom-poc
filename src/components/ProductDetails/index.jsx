@@ -1,7 +1,7 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { addToCart } from "../../app/features/cart/cartSlice";
+import { addToCart } from "../../Redux/cart/cartSlice";
 import { SlHeart,SlBasket} from "react-icons/sl";
 import styles from "./productDetails.module.scss";
 

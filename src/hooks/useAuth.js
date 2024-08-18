@@ -3,8 +3,8 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '../firebase.config'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { clearCart } from '../app/features/cart/cartSlice'
-import { clearFavorite } from '../app/features/favorite/favoriteSlice'
+import { clearCart } from '../Redux/cart/cartSlice'
+import { clearFavorite } from '../Redux/favorite/favoriteSlice'
 
 const useAuth = () => {
   const [currentUser, setCurrentUser] = useState({})

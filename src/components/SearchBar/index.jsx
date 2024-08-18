@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import {
   setProducts,
   setSelectedCategory,
-} from "../../app/features/products/productSlice";
+} from "../../Redux/products/productSlice";
 
 const SearchContainer = styled.div`
   position: relative;

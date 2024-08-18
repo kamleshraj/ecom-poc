@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import CompareModal from "../compareModal";
-import { setOpenModal } from "../../app/features/compare/compareSlice";
+import { setOpenModal } from "../../Redux/compare/compareSlice";
 import styles from './FooterStyle.module.scss'
 import { SlHandbag} from "react-icons/sl";
 

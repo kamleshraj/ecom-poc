@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct } from "../app/features/favorite/favoriteSlice";
+import { deleteProduct } from "../Redux/favorite/favoriteSlice";
 import { Helmet } from "../components";
 import { SlBasket } from "react-icons/sl";
 import { Link } from "react-router-dom";

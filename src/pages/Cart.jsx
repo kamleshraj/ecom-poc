@@ -5,7 +5,7 @@ import {
   addToCart,
   decreaseQty,
   deleteProduct,
-} from "../app/features/cart/cartSlice";
+} from "../Redux/cart/cartSlice";
 import { Link } from "react-router-dom";
 import { Helmet } from "../components";
 import { SlBasket } from "react-icons/sl";

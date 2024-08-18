@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Col, Container, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { SlHandbag, SlUser, SlBasket, SlHeart, SlGrid } from "react-icons/sl";
@@ -39,17 +39,47 @@ export const CustomNavbar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0 navbar-link-item"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Item>
-              <Link aria-label="category page" className="navbar-link" to="/">
-                <SlGrid />
-                <span className="nav-link-label ps-1">Category</span>
-              </Link>
-            </Nav.Item>
+          <Nav className="navbar-link-item ms-lg-5 me-auto" navbarScroll>
+            <NavDropdown
+              className="navbar-link"
+              title={
+                <>
+                  <SlGrid />
+                  <span className="nav-link-label ps-1">Category </span>
+                </>
+              }
+              id="mega-menu-dropdown"
+              menuAlign="left"
+            >
+              <Container>
+                <Row>
+                  <Col md={4}>
+                    <h5>Category 1</h5>
+                    <Nav className="flex-column">
+                      <Nav.Link href="#action/3.1">Product 1</Nav.Link>
+                      <Nav.Link href="#action/3.2">Product 2</Nav.Link>
+                      <Nav.Link href="#action/3.3">Product 3</Nav.Link>
+                    </Nav>
+                  </Col>
+                  <Col md={4}>
+                    <h5>Category 2</h5>
+                    <Nav className="flex-column">
+                      <Nav.Link href="#action/3.4">Product 4</Nav.Link>
+                      <Nav.Link href="#action/3.5">Product 5</Nav.Link>
+                      <Nav.Link href="#action/3.6">Product 6</Nav.Link>
+                    </Nav>
+                  </Col>
+                  <Col md={4}>
+                    <h5>Category 3</h5>
+                    <Nav className="flex-column">
+                      <Nav.Link href="#action/3.7">Product 7</Nav.Link>
+                      <Nav.Link href="#action/3.8">Product 8</Nav.Link>
+                      <Nav.Link href="#action/3.9">Product 9</Nav.Link>
+                    </Nav>
+                  </Col>
+                </Row>
+              </Container>
+            </NavDropdown>
             <Nav.Item>
               <Link
                 aria-label="Go to Products Page"
@@ -78,7 +108,7 @@ export const CustomNavbar = () => {
                   }
                 >
                   <NavDropdown.Item onClick={Logout} className="navbar-link">
-                  Logout
+                    Logout
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item className="navbar-link">
@@ -95,7 +125,7 @@ export const CustomNavbar = () => {
                   </Link>
                 </Nav.Item>
               )}
-              <div className="vr text-secondary"/>
+              <div className="vr text-secondary" />
               <Nav.Item className="position-relative">
                 <Link
                   aria-label="Go to Cart Page"

@@ -6,7 +6,7 @@ import {
   deleteProduct,
   setOpenModal,
   resetModal,
-} from "../../app/features/compare/compareSlice";
+} from "../../Redux/compare/compareSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

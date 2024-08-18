@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../app/features/cart/cartSlice";
-import { addToFavorite } from "../../app/features/favorite/favoriteSlice";
 import {
   HiHeart,
   HiOutlineHeart,
@@ -19,8 +17,9 @@ import { Button } from "react-bootstrap";
 import {
   addToCompare,
   setOpenModal,
-} from "../../app/features/compare/compareSlice";
-
+} from "../../Redux/compare/compareSlice";
+import { addToCart } from "../../Redux/cart/cartSlice";
+import { addToFavorite } from "../../Redux/favorite/favoriteSlice";
 export const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

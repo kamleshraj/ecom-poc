@@ -286,8 +286,8 @@ export const products = [
     productName: "Modern Arm Sofa",
     imgUrl: productImg007,
     category: "chair",
-    price: 173,
-    prevPrice:200,
+    price: 49,
+    prevPrice:75,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:

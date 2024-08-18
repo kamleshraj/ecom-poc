@@ -1,25 +1,13 @@
-import { lazy, Suspense, useEffect } from "react";
+import {Suspense, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {CustomNavbar} from "./components/Navbar";
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter as Router} from "react-router-dom";
 import {Loader} from "./components/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ProtectedRouter from "./routers/ProtectedRoute";
 import { products } from "./db/data.js";
 import { useDispatch } from "react-redux";
-import { setLoading, setProducts } from "./app/features/products/productSlice";
-
-const Home = lazy(() => import("./pages/Home"));
-const Shop = lazy(() => import("./pages/Shop"));
-const Cart = lazy(() => import("./pages/Cart"));
-const Product = lazy(() => import("./pages/Product"));
-const Login = lazy(() => import("./pages/Login"));
-const SignUp = lazy(() => import("./pages/SignUp"));
-const CheckOut = lazy(() => import("./pages/CheckOut"));
-const Favorite = lazy(() => import("./pages/Favorite"));
-const CompareProduct = lazy(() => import("./pages/CompareProduct"));
+import { setLoading, setProducts } from "./Redux/products/productSlice.js";
+import AppRoutes from "./routers/AppRoutes.js";
 
 function App() {
   const dispatch = useDispatch()
@@ -45,27 +33,7 @@ function App() {
           pauseOnHover
           theme="light"
         />
-        <CustomNavbar/>
-        
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:id" element={<Product/>} />
-          <Route path="/cart" element={<Cart />} />
-          <Route
-            path='/checkout'
-            element={
-              <ProtectedRouter>
-                <CheckOut />
-              </ProtectedRouter>
-            }
-          />
-          <Route path="/favorite" element={<Favorite />} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/sign-up" element={<SignUp/>}/>
-          <Route path="/compare-product" element={<CompareProduct/>}/>
-        </Routes>
-        <Footer />
+        <AppRoutes />
       </Router>
     </Suspense>
   );
