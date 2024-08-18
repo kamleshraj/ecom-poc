@@ -12,7 +12,6 @@ export const CustomNavbar = () => {
   const { favoriteList } = useSelector((state) => state.favorite);
   const [isFixed, setIsFixed] = useState(false);
   const { currentUser, Logout } = useAuth();
-  console.log(currentUser);
 
   function scrollHandler() {
     if (window.scrollY >= 100) {
