@@ -6,19 +6,38 @@ import { HiArrowsRightLeft} from "react-icons/hi2";
 import styles from "./productDetails.module.scss";
 import { addToFavorite } from "../../Redux/favorite/favoriteSlice";
 import { addToCompare } from "../../Redux/compare/compareSlice";
+import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
+import { CustomModal } from "../CustomModal";
 
 export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
+  const { currentUser } = useAuth();
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   const addCartHandler = (productItem) => {
     dispatch(addToCart({ product: productItem, num: 1 }));
   };
   const addFavoriteHandler=(productItem)=>{
-    dispatch( addToFavorite({ product: productItem, num: 1 }))
+    if (currentUser) {
+      dispatch(addToFavorite({ product: productItem, num: 1 }));
+    } else {
+      handleShowModal();
+    }
   }
   const addCompareHandler=(productItem)=>{
     dispatch( addToCompare({ product: productItem, num: 1 }))
   }
   return (
+    <>
+    <CustomModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        title="User Authentication"
+        description="Please login to add product in favorite!!!"
+      />
     <section className={styles.productDetailWrapper}>
       <Container>
         <Row className="align-items-center justify-content-center">
@@ -77,5 +96,6 @@ export const ProductDetails = ({ selectedProduct }) => {
         </Row>
       </Container>
     </section>
+    </>
   );
 };
