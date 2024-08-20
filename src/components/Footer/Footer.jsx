@@ -9,6 +9,7 @@ import { SlHandbag} from "react-icons/sl";
 const Footer = () => {
   const { compareList, isOpenModal } = useSelector((state) => state.compare);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (compareList.length > 0) {
       dispatch(setOpenModal(true));
@@ -22,7 +23,7 @@ const Footer = () => {
       <footer className={styles.footer}>
         <Container fluid>
           <Row className="footer-row">
-            <Col md={3} sm={5} className="box">
+            <Col md={4}>
               <div className={styles.logo}>
                 <SlHandbag/>
                 <h1 className={styles.logo.h1}>
@@ -36,7 +37,9 @@ const Footer = () => {
                 Erat et lectus vel ut sollicitudin elit at amet.
               </p>
             </Col>
-            <Col md={3} sm={5} className="box">
+            <Col md={8}>
+            <Row>
+            <Col md={4}>
               <h2>About Us</h2>
               <ul>
                 <li>Careers</li>
@@ -46,7 +49,7 @@ const Footer = () => {
                 <li>Privacy Policy</li>
               </ul>
             </Col>
-            <Col md={3} sm={5} className="box">
+            <Col md={4}>
               <h2>Customer Care</h2>
               <ul>
                 <li>Help Center </li>
@@ -56,13 +59,15 @@ const Footer = () => {
                 <li>Returns & Refunds </li>
               </ul>
             </Col>
-            <Col md={3} sm={5} className="box">
+            <Col md={4}>
               <h2>Contact Us</h2>
               <ul>
                 <li>Symphony IT Park, Pune, Maharashtra 411024, IN</li>
                 <li>Email: multishopInfo@gmail.com</li>
                 <li>Phone: +1 1123 456 780</li>
               </ul>
+            </Col>
+            </Row>
             </Col>
           </Row>
         </Container>
