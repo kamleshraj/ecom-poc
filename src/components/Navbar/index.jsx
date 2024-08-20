@@ -48,7 +48,6 @@ export const CustomNavbar = () => {
                 </>
               }
               id="mega-menu-dropdown"
-              menuAlign="left"
             >
               <Container>
                 <Row>
