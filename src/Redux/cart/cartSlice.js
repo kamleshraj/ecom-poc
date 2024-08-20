@@ -25,7 +25,6 @@ export const cartSlice = createSlice({
             ? { ...productExit, qty: productExit.qty + action.payload.num }
             : item
         );
-        toast.error('Product already added in the cart!!!')
       } else {
         state.cartList.push({ ...productToAdd, qty: quantity });
         toast.success("Product has been added to cart!");

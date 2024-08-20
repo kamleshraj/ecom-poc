@@ -85,7 +85,7 @@ const Login = () => {
                   <CardBody>
                     <Form className="login-form" onSubmit={signIn}>
                       <FloatingLabel
-                        controlId="floatingInput"
+                        controlId="floatingInputEmail"
                         label="Email"
                         className="mb-3"
                       >

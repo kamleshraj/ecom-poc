@@ -23,7 +23,7 @@ const Footer = () => {
       <footer className={styles.footer}>
         <Container fluid>
           <Row className="footer-row">
-            <Col md={4}>
+            <Col md={4} className="pe-md-5">
               <div className={styles.logo}>
                 <SlHandbag/>
                 <h1 className={styles.logo.h1}>
