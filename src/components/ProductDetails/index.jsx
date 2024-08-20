@@ -1,17 +1,23 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { addToCart } from "../../Redux/cart/cartSlice";
 import { SlHeart,SlBasket} from "react-icons/sl";
+import { HiArrowsRightLeft} from "react-icons/hi2";
 import styles from "./productDetails.module.scss";
+import { addToFavorite } from "../../Redux/favorite/favoriteSlice";
+import { addToCompare } from "../../Redux/compare/compareSlice";
 
 export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
   const addCartHandler = (productItem) => {
     dispatch(addToCart({ product: productItem, num: 1 }));
-    toast.success("Product has been added to cart!");
   };
-
+  const addFavoriteHandler=(productItem)=>{
+    dispatch( addToFavorite({ product: productItem, num: 1 }))
+  }
+  const addCompareHandler=(productItem)=>{
+    dispatch( addToCompare({ product: productItem, num: 1 }))
+  }
   return (
     <section className={styles.productDetailWrapper}>
       <Container>
@@ -20,7 +26,7 @@ export const ProductDetails = ({ selectedProduct }) => {
             <img
               loading="lazy"
               src={selectedProduct?.imgUrl}
-              alt={selectedProduct.title}
+              alt={selectedProduct?.title}
               className="img-fluid"
             />
           </Col>
@@ -43,22 +49,30 @@ export const ProductDetails = ({ selectedProduct }) => {
                 <span>{selectedProduct?.avgRating} Ratings</span>
               </li>
               <li className="d-flex align-items-center gap-3">
-               {<del className="text-secondary">${selectedProduct.prevPrice}</del>}
+               {<del className="text-secondary">${selectedProduct?.prevPrice}</del>}
                {<h2>${selectedProduct?.price}</h2>}
               </li>
-              <li>{selectedProduct?.description}</li>
-            </ul>
-            <div className={styles.btnLists}>
+              <li>{selectedProduct?.shortDesc}</li>
+              <li className={styles.cartBtn}>
               <Button
                 aria-label="Add"
                 type="submit"
-                variant="btn btn-warning btn-cart d-flex align-items-center gap-1"
+                variant="btn btn-warning cart-btn text-uppercase d-flex align-items-center gap-1 mt-3 w-50 justify-content-center"
                 onClick={() => addCartHandler(selectedProduct)}
               >
               <SlBasket/>  Add To Cart
               </Button>
-              <Button variant="outline-secondary btn-wishlist"><SlHeart/> Wishlist</Button>
-            </div>
+              </li>
+              <li className="d-flex align-items-center gap-3 pt-md-3">
+              <Button variant="outline-dark btn-wishlist"
+              onClick={() =>addFavoriteHandler(selectedProduct)}
+              ><SlHeart/> Add to Wishlist</Button>
+              <Button variant="outline-secondary"
+              onClick={() => addCompareHandler(selectedProduct)}
+              ><HiArrowsRightLeft/> Add to Compare</Button>
+              </li>
+            </ul>
+            
           </Col>
         </Row>
       </Container>

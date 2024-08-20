@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import {
   HiHeart,
@@ -24,15 +23,13 @@ export const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { cartList } = useSelector((state) => state.cart);
-  const { favoriteList } = useSelector((state) => state.favorite);
-  const { compareList } = useSelector((state) => state.compare);
+  const { favoriteList } = useSelector((state) => state.favorite);  const { compareList } = useSelector((state) => state.compare);
   
   const { currentUser } = useAuth();
 
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-
   const favoriteProductExit = favoriteList.find(
     (item) => item.id === productItem.id
   );
@@ -44,21 +41,11 @@ export const ProductCard = ({ productItem, title }) => {
 
   const addCartHandler = (productItem) => {
     dispatch(addToCart({ product: productItem, num: 1 }));
-    if (cartProductExit) {
-      toast.error("Already Product has been added to cart!");
-    } else {
-      toast.success("Product has been added to cart!");
-    }
   };
 
   const addFavoriteHandler = (productItem) => {
     if (currentUser) {
       dispatch(addToFavorite({ product: productItem, num: 1 }));
-      if (favoriteProductExit) {
-        toast.error("Already Product has been added to favorite!");
-      } else {
-        toast.success("Product has been added to favorite!");
-      }
     } else {
       handleShowModal();
     }

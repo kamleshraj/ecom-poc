@@ -44,6 +44,7 @@ const CheckOut = () => {
         `addressInfo_${currentUser.email}`,
         JSON.stringify(storedAddresses)
       );
+      setSavedAddresses(storedAddresses)
       toast.success("Address saved");
       setToggleForm(false);
       setAddressInfo({

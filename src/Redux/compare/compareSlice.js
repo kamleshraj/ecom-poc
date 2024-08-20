@@ -41,6 +41,7 @@ export const compareSlice = createSlice({
       } else {
         state.productExit=false;
         state.compareList.push({ ...productToCompare, qty: quantity });
+        toast.success("Product has been added to compare!")
         state.isOpenModal=true
       }
     },

@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct } from "../Redux/favorite/favoriteSlice";
 import { Helmet } from "../components";
-import { SlBasket } from "react-icons/sl";
+import { SlHeart } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { HiXMark } from "react-icons/hi2";
 
@@ -22,7 +22,7 @@ const Favorite = () => {
             <Col md={8}>
               {favoriteList.length === 0 && (
                 <div className="empty-cart-item text-center py-5">
-                  <SlBasket
+                  <SlHeart
                     style={{ fontSize: "3rem" }}
                     className="text-secondary"
                   />

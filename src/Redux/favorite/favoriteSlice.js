@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const storedFavoriteList = localStorage.getItem('favoriteList')
   ? JSON.parse(localStorage.getItem('favoriteList')) : [];
@@ -18,7 +19,7 @@ export const favoriteSlice = createSlice({
         (item) => item.id === productToAdd.id
       );
       if (productExit) {
-        
+        toast.error("Already Product has been added to favorite!");
         state.favoriteList = state.favoriteList.map((item) =>
           item.id === action.payload.product.id
             ? { ...productExit, qty: productExit.qty + action.payload.num }
@@ -27,6 +28,7 @@ export const favoriteSlice = createSlice({
       } else {
         state.productExit=false;
         state.favoriteList.push({ ...productToAdd, qty: quantity });
+        toast.success("Product has been added to favorite!");
       }
     },
     deleteProduct: (state, action) => {

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 const storedCartList =
   localStorage.getItem("cartList") !== null
     ? JSON.parse(localStorage.getItem("cartList"))
@@ -24,8 +25,10 @@ export const cartSlice = createSlice({
             ? { ...productExit, qty: productExit.qty + action.payload.num }
             : item
         );
+        toast.error('Product already added in the cart!!!')
       } else {
         state.cartList.push({ ...productToAdd, qty: quantity });
+        toast.success("Product has been added to cart!");
       }
     },
     decreaseQty: (state, action) => {

@@ -8,8 +8,6 @@ import { Helmet } from "../components";
 import { useSelector } from "react-redux";
 import {CustomBreadcrumbs} from "../components/CustomBreadCrumbs";
 
-
-
 const Product = () => {
   const { id } = useParams();
   const {products} = useSelector((state)=>state.products)

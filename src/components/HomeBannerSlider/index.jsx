@@ -30,7 +30,7 @@ export const HomeBannerSlider = () => {
                         Shop Now
                       </Link>
                     </div>
-                    <div className="banner-img">
+                    <div className="banner-img d-none d-md-block">
                       <img src={value.cover} alt="banner" className="fluid"/>
                     </div>
                   </div>
