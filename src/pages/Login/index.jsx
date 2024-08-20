@@ -22,6 +22,7 @@ import {
   Form,
   Row,
 } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Login = () => {
   const [userLogin, setUserLogin] = useState({
@@ -29,7 +30,8 @@ const Login = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-
+  const {cartList} = useSelector((state)=>state.cart);
+  
   const navigate = useNavigate();
 
   const signIn = async (e) => {
@@ -43,7 +45,11 @@ const Login = () => {
       );
       setLoading(false);
       toast.success("Successfully logged in");
+      if(cartList.length > 0){
+        navigate("/cart");
+      }else{
       navigate("/");
+      }
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
@@ -118,15 +124,15 @@ const Login = () => {
                         </Button>
                       </div>
                     </Form>
-                    <hr/>
+                    <hr />
                     <div className="login-btn-google text-center">
-
                       <Button
                         variant="danger w-100"
                         onClick={loginWithGoogle}
                         disabled={loading}
                       >
-                       <IoLogoGoogleplus className="fs-4"/> {loading ? "Logging in..." : "Sign In with Google"}
+                        <IoLogoGoogleplus className="fs-4" />{" "}
+                        {loading ? "Logging in..." : "Sign In with Google"}
                       </Button>
                       <p className="pt-4">
                         Don't have an account{" "}
