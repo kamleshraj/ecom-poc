@@ -26,11 +26,14 @@
 
   img {
     width: 100%;
-    object-fit: cover;
-    max-height: 150px;
+    object-fit: contain;
+    max-height: auto;
     transition: transform 0.5s ease-in-out;
     &:hover {
       transform: scale(1.1);
+    }
+    @media (min-width: 768px) {
+      max-height: 150px;
     }
   }
 
@@ -91,11 +94,9 @@
       cursor: pointer;
       padding: 0;
       font-size: 1.5rem;
-
       svg {
         transition: color 0.3s ease;
       }
-
       &:hover svg {
         color: $primary-color;
       }
@@ -104,7 +105,6 @@
 
   &:hover {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-
     .price {
       color: $primary-color;
     }
