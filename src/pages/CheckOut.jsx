@@ -23,14 +23,14 @@ const CheckOut = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [savedAddresses, setSavedAddresses] = useState([]);
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(0);
-  const initialFormValue={
+  const initialFormValue = {
     name: "",
     mobile: "",
     streetAddress: "",
     zip: "",
     city: "",
     state: "",
-  }
+  };
   const { currentUser } = useAuth();
 
   const totalPrice = cartList.reduce(
