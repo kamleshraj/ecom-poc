@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Container } from "react-bootstrap";
 import { SliderData } from "../../db/data";
 import { Link } from "react-router-dom";
-import "./homeBannerSlider.scss";
+import styles from "./homeBannerSlider.module.scss";
 
 export const HomeBannerSlider = () => {
   const settings = {
@@ -17,20 +17,20 @@ export const HomeBannerSlider = () => {
     autoplaySpeed: 3000,
   };
   return (
-    <section className="homeBanner-wrapper">
+    <section className={styles.homeBannerWrapper}>
       <Container>
             <Slider {...settings}>
               {SliderData.map((value, index) => {
                 return (
-                  <div key={index} className="homeBannerInner d-flex align-items-center justify-content-space-between text-white">
-                    <div className="bannerInfo" key={index}>
+                  <div key={index} className={`${styles.homeBannerInner} d-flex align-items-center justify-content-space-between text-white`}>
+                    <div className={styles.bannerInfo} key={index}>
                       <h1>{value.title}</h1>
                       <p>{value.desc}</p>
                       <Link to="/shop" className="btn btn-primary">
                         Shop Now
                       </Link>
                     </div>
-                    <div className="banner-img d-none d-md-block">
+                    <div className={`${styles.bannerImg} d-none d-md-block`}>
                       <img src={value.cover} alt="banner" className="fluid"/>
                     </div>
                   </div>

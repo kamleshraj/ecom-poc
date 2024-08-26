@@ -1,13 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedColors } from "../../Redux/products/productSlice";
-import styles from './ColorSidebar.module.scss'
+import styles from "./ColorSidebar.module.scss";
 
 export const ColorFilter = () => {
   const dispatch = useDispatch();
-  const {selectedColors,products,filteredProducts} = useSelector((state) => state.products);
+  const { selectedColors, products, filteredProducts } = useSelector(
+    (state) => state.products
+  );
   const colors = ["Red", "Blue", "Green", "Yellow", "Black", "White"];
-  
+
   const handleCheckboxChange = (color) => {
     let updatedColors;
     if (selectedColors.includes(color)) {
@@ -19,7 +21,8 @@ export const ColorFilter = () => {
   };
 
   const getColorCount = (color, filteredProducts = null, products) => {
-    const productList = filteredProducts.length > 0 ? filteredProducts : products;
+    const productList =
+      filteredProducts.length > 0 ? filteredProducts : products;
     return productList.filter((product) => product.color === color).length;
   };
 
@@ -34,9 +37,12 @@ export const ColorFilter = () => {
             onChange={() => handleCheckboxChange(color)}
             checked={selectedColors.includes(color)}
           />
-          <div className={styles.colorsBox} style={{ backgroundColor: `${color}` }} />
+          <div
+            className={styles.colorsBox}
+            style={{ backgroundColor: `${color}` }}
+          />
           <div className="color-item">
-             {color} ({getColorCount(color,filteredProducts,products)})
+            {color} ({getColorCount(color, filteredProducts, products)})
           </div>
         </div>
       ))}

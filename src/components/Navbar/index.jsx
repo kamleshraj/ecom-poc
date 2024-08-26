@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { SlHandbag, SlUser, SlBasket, SlHeart, SlGrid } from "react-icons/sl";
 import { SearchBar } from "../SearchBar";
 import useAuth from "../../hooks/useAuth";
-import styles from "./Navbar-module.scss";
+import styles from "./Navbar.module.scss";
 
 export const CustomNavbar = () => {
   const { cartList } = useSelector((state) => state.cart);
@@ -24,31 +24,39 @@ export const CustomNavbar = () => {
   return (
     <Navbar
       expand="md"
-      className={isFixed ? `navbar fixedNavbar` : styles.navbar}
+      className={`${styles.navbar} ${isFixed ? styles.fixedNavbar : ""}`}
     >
       <Container fluid>
-        <Navbar.Brand className="navLinkLogo">
-          <Link to="/" className="my-logo d-flex align-items-center gap-2">
-            <SlHandbag className="logo-icon" />
-            <h1 className="logo fw-bolder ">
+        <Navbar.Brand className={styles.navLinkLogo}>
+          <Link
+            to="/"
+            className={`${styles.myLogo} d-flex align-items-center gap-2`}
+          >
+            <SlHandbag className={styles.logoIcon} />
+            <h1 className={`${styles.logo} fw-bolder`}>
               Multi Shop
-              <div className="logo-caption">Big Mega Store</div>
+              <div className={styles.logoCaption}>Big Mega Store</div>
             </h1>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="navbar-link-item ms-lg-5 me-auto" navbarScroll>
+          <Nav
+            className={`${styles.navbarLinkItem} ms-lg-5 me-auto navbarScroll`}
+          >
             <NavDropdown
-              className="navbar-link"
+              className={styles.test}
               title={
                 <>
                   <SlGrid />
-                  <span className="nav-link-label ps-1">Category </span>
+                  <span className={`${styles.navLinkLabel} ps-1`}>
+                    Category{" "}
+                  </span>
                 </>
               }
               id="mega-menu-dropdown"
             >
+              <div className={styles.dropdownMenu}>
               <Container>
                 <Row>
                   <Col md={4}>
@@ -77,21 +85,22 @@ export const CustomNavbar = () => {
                   </Col>
                 </Row>
               </Container>
+              </div>
             </NavDropdown>
             <Nav.Item>
               <Link
                 aria-label="Go to Products Page"
-                className="navbar-link"
+                className={styles.navbarLink}
                 to="/shop"
               >
-                <span className="nav-link-label">Shop</span>
+                <span className={styles.navLinkLabel}>Shop</span>
               </Link>
             </Nav.Item>
           </Nav>
           <div className="d-flex justify-content-center flex-grow-1">
             <SearchBar />
           </div>
-          <div className="nav-link-iconWrapper">
+          <div className={styles.navLinkIconWrapper}>
             <Nav className="ms-auto gap-md-3 d-flex align-items-center">
               {currentUser ? (
                 <NavDropdown
@@ -105,11 +114,11 @@ export const CustomNavbar = () => {
                     </>
                   }
                 >
-                  <NavDropdown.Item className="navbar-link">
+                  <NavDropdown.Item className={styles.navItem}>
                     My Profile
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={Logout} className="navbar-link">
+                  <NavDropdown.Item onClick={Logout} className={styles.navbarLink}>
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -117,7 +126,7 @@ export const CustomNavbar = () => {
                 <Nav.Item>
                   <Link
                     to="/login"
-                    className="navbar-link btn btn-primary text-white d-flex align-items-center p-1 px-2 gap-1"
+                    className={`${styles.navbarLink} btn btn-primary text-white d-flex align-items-center p-1 px-2 gap-1`}
                   >
                     <SlUser /> Login
                   </Link>
@@ -128,10 +137,10 @@ export const CustomNavbar = () => {
                 <Link
                   aria-label="Go to Cart Page"
                   to="/cart"
-                  className="navbar-link"
+                  className={styles.navbarLink}
                 >
                   {cartList.length !== 0 && (
-                    <span className="cart-count-badge">
+                    <span className={styles.cartCountBadge}>
                       <span className="">{cartList.length}</span>
                     </span>
                   )}
@@ -143,10 +152,10 @@ export const CustomNavbar = () => {
                 <Link
                   aria-label="Go to Favorite Page"
                   to="/favorite"
-                  className="navbar-link"
+                  className={styles.navbarLink}
                 >
                   {favoriteList.length !== 0 && (
-                    <span className="cart-count-badge">
+                    <span className={styles.cartCountBadge}>
                       <span className="">{favoriteList.length}</span>
                     </span>
                   )}

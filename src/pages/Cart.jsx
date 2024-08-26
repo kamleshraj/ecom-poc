@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToCart,
-  decreaseQty,
-  deleteProduct,
-} from "../Redux/cart/cartSlice";
+import { addToCart, decreaseQty, deleteProduct } from "../Redux/cart/cartSlice";
 import { Link } from "react-router-dom";
 import { Helmet } from "../components";
 import { SlBasket } from "react-icons/sl";
