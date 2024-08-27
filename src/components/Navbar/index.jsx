@@ -45,12 +45,11 @@ export const CustomNavbar = () => {
             className={`${styles.navbarLinkItem} ms-lg-5 me-auto navbarScroll`}
           >
             <NavDropdown
-              className={styles.test}
               title={
                 <>
                   <SlGrid />
                   <span className={`${styles.navLinkLabel} ps-1`}>
-                    Category{" "}
+                    Category
                   </span>
                 </>
               }
@@ -60,7 +59,7 @@ export const CustomNavbar = () => {
               <Container>
                 <Row>
                   <Col md={4}>
-                    <h5>Category 1</h5>
+                    <h6>Category 1</h6>
                     <Nav className="flex-column">
                       <Nav.Link href="#action/3.1">Product 1</Nav.Link>
                       <Nav.Link href="#action/3.2">Product 2</Nav.Link>
@@ -68,7 +67,7 @@ export const CustomNavbar = () => {
                     </Nav>
                   </Col>
                   <Col md={4}>
-                    <h5>Category 2</h5>
+                    <h6>Category 2</h6>
                     <Nav className="flex-column">
                       <Nav.Link href="#action/3.4">Product 4</Nav.Link>
                       <Nav.Link href="#action/3.5">Product 5</Nav.Link>
@@ -76,7 +75,7 @@ export const CustomNavbar = () => {
                     </Nav>
                   </Col>
                   <Col md={4}>
-                    <h5>Category 3</h5>
+                    <h6>Category 3</h6>
                     <Nav className="flex-column">
                       <Nav.Link href="#action/3.7">Product 7</Nav.Link>
                       <Nav.Link href="#action/3.8">Product 8</Nav.Link>
