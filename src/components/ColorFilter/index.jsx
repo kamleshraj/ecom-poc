@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedColors } from "../../Redux/products/productSlice";
+
 import styles from "./ColorSidebar.module.scss";
 
 export const ColorFilter = () => {

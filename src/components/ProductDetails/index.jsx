@@ -1,14 +1,15 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../Redux/cart/cartSlice";
 import { SlHeart,SlBasket} from "react-icons/sl";
 import { HiArrowsRightLeft} from "react-icons/hi2";
-import styles from "./productDetails.module.scss";
 import { addToFavorite } from "../../Redux/favorite/favoriteSlice";
 import { addToCompare } from "../../Redux/compare/compareSlice";
 import useAuth from "../../hooks/useAuth";
-import { useState } from "react";
 import { CustomModal } from "../CustomModal";
+import { addToCart } from "../../Redux/cart/cartSlice";
+
+import styles from "./productDetails.module.scss";
 
 export const ProductDetails = ({ selectedProduct }) => {
   const dispatch = useDispatch();
@@ -35,7 +36,6 @@ export const ProductDetails = ({ selectedProduct }) => {
     <CustomModal
         show={showModal}
         handleClose={handleCloseModal}
-        title="User Authentication"
         description="Please login to add product in favorite!!!"
       />
     <section className={styles.productDetailWrapper}>

@@ -1,9 +1,9 @@
 import Slider from "react-slick";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { SliderData } from "../../db/data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Container } from "react-bootstrap";
-import { SliderData } from "../../db/data";
-import { Link } from "react-router-dom";
 import styles from "./homeBannerSlider.module.scss";
 
 export const HomeBannerSlider = () => {

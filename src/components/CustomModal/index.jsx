@@ -1,9 +1,8 @@
-// src/components/CustomModal.js
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const CustomModal = ({ show, handleClose, title, description }) => {
+export const CustomModal = ({ show, handleClose, description }) => {
   return (
     <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter"
     centered> 

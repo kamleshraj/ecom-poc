@@ -1,11 +1,11 @@
 import {useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {ProductDetails} from "../components/ProductDetails";
 import {ProductReviews} from "../components/ProductReviews";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
-import Section from "../components/Section";
+import {Section} from "../components/Section";
 import { Helmet } from "../components";
-import { useSelector } from "react-redux";
 import {CustomBreadcrumbs} from "../components/CustomBreadCrumbs";
 
 const Product = () => {

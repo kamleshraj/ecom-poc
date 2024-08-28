@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, decreaseQty, deleteProduct } from "../Redux/cart/cartSlice";
 import { Link } from "react-router-dom";
 import { Helmet } from "../components";
 import { SlBasket } from "react-icons/sl";
 import { HiXMark } from "react-icons/hi2";
+import { addToCart, decreaseQty, deleteProduct } from "../Redux/cart/cartSlice";
+
+import styles from './commonStyle.module.scss'
+
 const Cart = () => {
   const { cartList } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -18,16 +21,13 @@ const Cart = () => {
   }, []);
   return (
     <Helmet title="Cart">
-      <section className="cart-items pt-3">
+      <section className={styles.cartItems}>
         <Container>
           <Row className="justify-content-center">
             <Col md={8}>
               {cartList.length === 0 && (
-                <div className="empty-cart-item text-center py-5">
-                  <SlBasket
-                    style={{ fontSize: "3rem" }}
-                    className="text-secondary"
-                  />
+                <div className={styles.emptyCartItem}>
+                  <SlBasket />
                   <h4 className="text-secondary py-2">
                     Your cart is currently empty!
                   </h4>
@@ -39,29 +39,29 @@ const Cart = () => {
               {cartList.map((item) => {
                 const productQty = item.price * item.qty;
                 return (
-                  <div className="cart-item shadow-sm mb-3" key={item.id}>
+                  <div className={styles.cartItem} key={item.id}>
                     <Row>
                       <Col md={3}>
                         <img
                           src={item.imgUrl}
                           alt={item.productName}
-                          className="img-fluid product-item-image"
+                          className={`img-fluid ${styles.productItemImage}`}
                         />
                       </Col>
-                      <Col md={9} className="cart-item-details">
-                        <h5>{item.productName}</h5>
-                        <ul className="cart-item-list mb-0">
+                      <Col md={9} className={styles.cartItemDetails}>
+                        <h5><Link className={styles.textLink} to={`/shop/${item.id}`}>{item.productName}</Link></h5>
+                        <ul className={styles.cartItemList}>
                           <li>${item.price}.00</li>
                           <li className="cartControl">
                             <button
-                              className="incCart"
+                              className={styles.btnStyle}
                               onClick={() => dispatch(decreaseQty(item))}
                             >
                               <i className="fa-solid fa-minus"></i>
                             </button>
                             {item.qty}
                             <button
-                              className="incCart"
+                              className={styles.btnStyle}
                               onClick={() =>
                                 dispatch(addToCart({ product: item, num: 1 }))
                               }
@@ -75,7 +75,7 @@ const Cart = () => {
                         </ul>
                       </Col>
                       <button
-                        className="delete"
+                        className={styles.delete}
                         onClick={() => dispatch(deleteProduct(item))}
                       >
                         <HiXMark />
@@ -87,16 +87,16 @@ const Cart = () => {
             </Col>
             {cartList.length !== 0 && (
               <Col md={4}>
-                <div className="cart-total card border-0 shadow-sm">
-                  <h4 className="summary-title">Order Summary</h4>
-                  <ul className="summaryInfo">
+                <div className={`${styles.cartTotal} card border-0 shadow-sm`}>
+                  <h4 className={styles.summaryTitle}>Order Summary</h4>
+                  <ul className={styles.summaryInfo}>
                     <li>
                       Subtotal<div>${totalPrice}</div>
                     </li>
                     <li>
                       Shipping<div className="text-success">Free</div>
                     </li>
-                    <li className="totalPrice">
+                    <li className={styles.totalPrice}>
                       Total<h4>${totalPrice}.00</h4>
                     </li>
                     <li>

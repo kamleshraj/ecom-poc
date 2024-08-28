@@ -1,13 +1,13 @@
 import {Suspense, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router} from "react-router-dom";
-import {Loader} from "./components/Loader";
 import { ToastContainer } from "react-toastify";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { products } from "./db/data.js";
 import { useDispatch } from "react-redux";
 import { setLoading, setProducts } from "./Redux/products/productSlice.js";
 import AppRoutes from "./routers/AppRoutes.js";
+import {Loader} from "./components/Loader";
 
 function App() {
   const dispatch = useDispatch()

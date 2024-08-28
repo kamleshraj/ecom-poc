@@ -10,3 +10,4 @@ export {CustomModal} from './CustomModal/index';
 export {PriceRangeSlider} from './PriceRangeSlider';
 export {CustomBreadcrumbs} from './CustomBreadCrumbs/index';
 export {ColorFilter} from './ColorFilter/index'
+export {Section} from './Section/index'

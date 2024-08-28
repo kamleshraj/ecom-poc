@@ -1,9 +1,10 @@
-import Section from "../components/Section";
+import { useSelector } from "react-redux";
+import {Section} from "../components/Section";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import {HomeBannerSlider} from "../components/HomeBannerSlider";
 import { Helmet } from "../components";
 import Services from "../components/ServicesWrapper/Services";
-import { useSelector } from "react-redux";
+
 
 const Home = () => {
   const {products} = useSelector((state)=>state.products)

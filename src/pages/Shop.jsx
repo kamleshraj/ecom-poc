@@ -1,10 +1,10 @@
+import { useSelector } from "react-redux";
 import FilterSelect from "../components/FilterSelect";
 import ShopList from "../components/ShopList";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 import styled from "styled-components";
 import {CustomBreadcrumbs} from "../components/CustomBreadCrumbs";
 import {PriceRangeSlider} from "../components/PriceRangeSlider";
-import { useSelector } from "react-redux";
 import { Helmet } from "../components";
 import {ColorFilter} from "../components/ColorFilter";
 

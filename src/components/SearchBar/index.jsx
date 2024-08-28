@@ -1,62 +1,12 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { SlMagnifier } from "react-icons/sl";
 import { useDispatch, useSelector } from "react-redux";
-// import useDebounce from "../../hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 import {
   setProducts,
   setSelectedCategory,
 } from "../../Redux/products/productSlice";
-
-const SearchContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  max-width: 440px;
-  height: 50px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background-color: #f2f2f2;
-  width: 100%;
-  align-self: center;
-  align-items: center;
-  input {
-    width: 100%;
-    height: 100%;
-    padding: 8px;
-    border: none;
-    font-size: 16px;
-    color: #333;
-    outline: none;
-    background: transparent;
-  }
-`;
-const SuggestionsList = styled.ul`
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  list-style: none;
-  padding: 0;
-  left: 0;
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 11;
-  li {
-    padding: 10px 10px 10px 25px;
-    cursor: pointer;
-    border-bottom: 1px solid #e9e9e973;
-    &:hover {
-      background-color: #f2f2f2;
-    }
-    &:last-child() {
-      border-bottom: transparent;
-    }
-  }
-`;
+import styles from './searchBox.module.scss'
 
 export const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
@@ -66,7 +16,6 @@ export const SearchBar = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const debounceSearchWord = useDebounce(searchWord, 300);
 
   const handleSelect = (category) => {
     if (typeof category !== "string" || category.trim() === "") return;
@@ -96,7 +45,7 @@ export const SearchBar = () => {
     }
   };
   return (
-    <SearchContainer>
+    <div className={styles.searchBoxWrapper}>
       <input
         type="text"
         placeholder="Search Categories..."
@@ -105,14 +54,14 @@ export const SearchBar = () => {
       />
       <SlMagnifier className="search-icon" />
       {suggestions.length > 0 && (
-        <SuggestionsList>
+        <div className="searchSuggestion">
           {suggestions.map((suggestion, index) => (
             <li key={index} onClick={() => handleSelect(suggestion)}>
               {suggestion}
             </li>
           ))}
-        </SuggestionsList>
+        </div>
       )}
-    </SearchContainer>
+    </div>
   );
 };

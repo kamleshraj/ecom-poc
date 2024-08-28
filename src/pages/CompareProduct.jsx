@@ -1,8 +1,8 @@
 import { Button, Card, CardBody, Container, Table } from "react-bootstrap";
-import { Helmet } from "./../components/Helmet/index";
 import { useDispatch, useSelector } from "react-redux";
 import { SlBasket } from "react-icons/sl";
 import { addToCart } from "../Redux/cart/cartSlice";
+import { Helmet } from "./../components/Helmet";
 
 const CompareProduct = () => {
   const { compareList } = useSelector((state) => state.compare);

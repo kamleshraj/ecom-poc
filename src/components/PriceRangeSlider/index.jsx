@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setProductPriceRange } from "../../Redux/products/productSlice";
-import styled from "styled-components";
 
-const FilteredProductByPriceWrapper = styled.div`
-  margin-top: 20px;
-  .min-text,
-  .max-text {
-    font-size: 0.7rem;
-  }
-`;
 
 export const PriceRangeSlider = () => {
   const [priceRange, setPriceRange] = useState(200);
@@ -22,7 +14,7 @@ export const PriceRangeSlider = () => {
   };
 
   return (
-    <FilteredProductByPriceWrapper>
+    <div className="filterPriceWrapper">
       <h6>Price Range</h6>
       <input
         type="range"
@@ -37,6 +29,6 @@ export const PriceRangeSlider = () => {
         <span className="min-text">Min: 50</span>
         <span className="max-text">Max: {priceRange}</span>
       </div>
-    </FilteredProductByPriceWrapper>
+    </div>
   );
 };

@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./compareModalStyle.module.scss";
 import { Button } from "react-bootstrap";
 import { HiXMark } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   deleteProduct,
   setOpenModal,
   resetModal,
 } from "../../Redux/compare/compareSlice";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import styles from "./compareModalStyle.module.scss";
 
 const CompareModal = () => {
   const { compareList } = useSelector((state) => state.compare);

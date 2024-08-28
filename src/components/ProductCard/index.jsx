@@ -8,17 +8,19 @@ import {
   HiOutlineEye,
   HiArrowsRightLeft,
 } from "react-icons/hi2";
-import styles from "./productCard.module.scss";
-import useAuth from "../../hooks/useAuth";
-import { CustomModal } from "../CustomModal";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
+import { CustomModal } from "../CustomModal";
 import {
   addToCompare,
   setOpenModal,
 } from "../../Redux/compare/compareSlice";
 import { addToCart } from "../../Redux/cart/cartSlice";
 import { addToFavorite } from "../../Redux/favorite/favoriteSlice";
+
+import styles from "./productCard.module.scss";
+
 export const ProductCard = ({ productItem, title }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ export const ProductCard = ({ productItem, title }) => {
       handleShowModal();
     }
   };
-  const addToCampareHandler = (productItem) => {
+  const addToCompareHandler = (productItem) => {
     dispatch(addToCompare({ product: productItem, num: 1 }));
     if (compareList.length > 0) {
       dispatch(setOpenModal(true));
@@ -61,7 +63,6 @@ export const ProductCard = ({ productItem, title }) => {
       <CustomModal
         show={showModal}
         handleClose={handleCloseModal}
-        title="User Authentication"
         description="Please login to add product in favorite!!!"
       />
 
@@ -122,14 +123,7 @@ export const ProductCard = ({ productItem, title }) => {
           </div>
           <div className={styles.price}>
             {productItem.prevPrice ? (
-              <div
-                style={{
-                  display: "flex",
-                  gap: "10px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <div className="d-flex align-items-center gap-2">
                 <del>${productItem.prevPrice}</del>
                 <h4>${productItem.price}</h4>
               </div>
@@ -139,7 +133,7 @@ export const ProductCard = ({ productItem, title }) => {
           </div>
           <Button
             variant="outline-secondary btn-compare"
-            onClick={() => addToCampareHandler(productItem)}
+            onClick={() => addToCompareHandler(productItem)}
           >
             <HiArrowsRightLeft /> Compare
           </Button>

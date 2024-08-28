@@ -1,27 +1,15 @@
 import React from "react"
 import { serviceData } from "../../db/data"
-import styled from "styled-components"
-
-const ServiceWrapper= styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 15px 0px 0px 0px;
-  border-radius: 6px;
-  .feature-item{
-    text-align: center;
-    padding: 15px;
-    h3{font-size:1.5rem}
-    .icon{font-size:2rem}
-  }
-`;
+import styles from './service.module.scss'
 
 const Services = () => {
+
   return (
-      <ServiceWrapper>
+      <div className={styles.serviceWrapper}>
         {serviceData.map((item, index) => {
             return (
-              <div style={{backgroundColor:item.bg}} className='feature-item' key={index}>
-                <div className='icon'>
+              <div style={{backgroundColor:item.bg}} className={styles.featureItem} key={index}>
+                <div className={styles.icon}>
                   {item.icon}
                 </div>
                 <h3>{item.title}</h3>
@@ -29,7 +17,7 @@ const Services = () => {
               </div>
             )
           })}
-      </ServiceWrapper>
+      </div>
   )
 }
 

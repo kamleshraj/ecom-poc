@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct } from "../Redux/favorite/favoriteSlice";
-import { Helmet } from "../components";
 import { SlHeart } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { HiXMark } from "react-icons/hi2";
+import { deleteProduct } from "../Redux/favorite/favoriteSlice";
+import { Helmet } from "../components";
+
+import styles from './commonStyle.module.scss'
 
 const Favorite = () => {
   const { favoriteList } = useSelector((state) => state.favorite);
@@ -16,15 +18,14 @@ const Favorite = () => {
   }, []);
   return (
     <Helmet title="Favorite">
-      <section className="cart-items pt-3">
+      <section className={styles.cartItems}>
         <Container>
           <Row className="justify-content-center">
             <Col md={8}>
               {favoriteList.length === 0 && (
-                <div className="empty-cart-item text-center py-5">
+                <div className="emptyCartItem text-center py-5">
                   <SlHeart
-                    style={{ fontSize: "3rem" }}
-                    className="text-secondary"
+                    className="text-secondary fs-h1"
                   />
                   <h4 className="text-secondary py-2">
                     Your favorite list is currently empty!
@@ -36,23 +37,23 @@ const Favorite = () => {
               )}
               {favoriteList.map((item) => {
                 return (
-                  <div className="cart-item shadow-sm mb-3" key={item.id}>
+                  <div className={styles.cartItem} key={item.id}>
                     <Row>
                       <Col md={3}>
                         <img
                           src={item.imgUrl}
                           alt={item.productName}
-                          className="img-fluid product-item-image"
+                          className={`img-fluid ${styles.productItemImage}`}
                         />
                       </Col>
-                      <Col md={9} className="cart-item-details">
-                        <h5>{item.productName}</h5>
-                        <ul className="cart-item-list mb-0">
+                      <Col md={9} className={styles.cartItemDetails}>
+                        <h5><Link className={styles.textLink} to={`/shop/${item.id}`}>{item.productName}</Link></h5>
+                        <ul className={styles.cartItemList}>
                           <li>${item.price}.00</li>
                         </ul>
                       </Col>
                       <button
-                        className="delete"
+                        className={styles.delete}
                         onClick={() => dispatch(deleteProduct(item))}
                       >
                         <HiXMark/>

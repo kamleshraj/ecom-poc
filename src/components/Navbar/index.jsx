@@ -56,34 +56,34 @@ export const CustomNavbar = () => {
               id="mega-menu-dropdown"
             >
               <div className={styles.dropdownMenu}>
-              <Container>
-                <Row>
-                  <Col md={4}>
-                    <h6>Category 1</h6>
-                    <Nav className="flex-column">
-                      <Nav.Link href="#action/3.1">Product 1</Nav.Link>
-                      <Nav.Link href="#action/3.2">Product 2</Nav.Link>
-                      <Nav.Link href="#action/3.3">Product 3</Nav.Link>
-                    </Nav>
-                  </Col>
-                  <Col md={4}>
-                    <h6>Category 2</h6>
-                    <Nav className="flex-column">
-                      <Nav.Link href="#action/3.4">Product 4</Nav.Link>
-                      <Nav.Link href="#action/3.5">Product 5</Nav.Link>
-                      <Nav.Link href="#action/3.6">Product 6</Nav.Link>
-                    </Nav>
-                  </Col>
-                  <Col md={4}>
-                    <h6>Category 3</h6>
-                    <Nav className="flex-column">
-                      <Nav.Link href="#action/3.7">Product 7</Nav.Link>
-                      <Nav.Link href="#action/3.8">Product 8</Nav.Link>
-                      <Nav.Link href="#action/3.9">Product 9</Nav.Link>
-                    </Nav>
-                  </Col>
-                </Row>
-              </Container>
+                <Container>
+                  <Row>
+                    <Col md={4}>
+                      <h6>Category 1</h6>
+                      <Nav className="flex-column">
+                        <Link to="/">Product 1</Link>
+                        <Link to="/">Product 2</Link>
+                        <Link to="/">Product 3</Link>
+                      </Nav>
+                    </Col>
+                    <Col md={4}>
+                      <h6>Category 2</h6>
+                      <Nav className="flex-column">
+                        <Link to="/">Product 4</Link>
+                        <Link to="/">Product 5</Link>
+                        <Link to="/">Product 6</Link>
+                      </Nav>
+                    </Col>
+                    <Col md={4}>
+                      <h6>Category 3</h6>
+                      <Nav className="flex-column">
+                        <Link to="/">Product 7</Link>
+                        <Link to="/">Product 8</Link>
+                        <Link to="/">Product 9</Link>
+                      </Nav>
+                    </Col>
+                  </Row>
+                </Container>
               </div>
             </NavDropdown>
             <Nav.Item>
@@ -117,7 +117,10 @@ export const CustomNavbar = () => {
                     My Profile
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={Logout} className={styles.navbarLink}>
+                  <NavDropdown.Item
+                    onClick={Logout}
+                    className={styles.navbarLink}
+                  >
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
